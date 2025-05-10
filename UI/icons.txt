@@ -1,0 +1,13 @@
+<i class="bi bi-view-list rounded-circle "></i>
+<i class="bi bi-patch-check rounded-circle "></i>
+<i class="bi bi-file-earmark-person rounded-circle"></i>
+<i class="bi bi-telephone rounded-circle"></i>
+
+
+<div class="row">
+            <div class="col-12 text-center py-5">
+                <h1 class="display-4">Welcome to Our Jewellery Shop</h1>
+                <p class="lead">Discover the finest collection of jewellery</p>
+                <a href="#" class="btn btn-primary btn-lg">Shop Now</a>
+            </div>
+</div>
