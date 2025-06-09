@@ -10,7 +10,7 @@
 <body>
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: sticky; top: 0; z-index: 1000;">
         <div class="container-fluid">
             <!-- Logo -->
             <a class="navbar-brand" href="#">Jewellery Shop</a>
@@ -117,12 +117,12 @@
     <!-- MOTO END -->
 
     <!-- PRODUCT GRID -->
-    <div class="container py-4 position-relative">
-        
+    <div class="container py-4">
+        <!-- Left Arrow -->
+        <button class="btn btn-success position-absolute start-0 top-50 translate-middle-y z-1" onclick="scrollCards(-300)">
+            &#8592;
+        </button>
         <div class="d-flex overflow-auto gap-3">
-            <button class="btn  position-relative start-0 top-50" onclick="scrollCards(-300)">
-                &#8592;
-            </button>
             <!-- CARD -->
             <div class="col">
                 <div class="card h-100" style="min-width: 250px;">
@@ -212,12 +212,21 @@
                 </div>
             </div>
             <!-- CARD END -->
-
-            <button class="btn  position-relative end-0 top-50" onclick="scrollCards(-300)">
-                &#8594;
-            </button>
         </div>
+        <!-- Right Arrow -->
+        <button class="btn btn-success position-absolute end-0 top-50 translate-middle-y z-1" onclick="scrollCards(300)">
+            &#8594;
+        </button>
     </div>
+    <script>
+    function scrollCards(scrollAmount) {
+        const container = document.querySelector('.d-flex.overflow-auto');
+        container.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    }
+    </script>
 
 
     <!-- PRODUCT GRID END -->
