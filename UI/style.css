@@ -1,0 +1,14 @@
+nav *{
+    color: #641E64;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.navbar .nav-item:hover, .cart:hover {
+    scale: 1.1;
+    transition: scale 0.3s ease-in-out;
+}
+
+.social-networks i {
+    font-size: 1.3rem;   
+}
