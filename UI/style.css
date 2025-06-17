@@ -17,7 +17,7 @@ nav *{
 .carousel .intro{
     font-family: Lora, serif;
     font-weight: 700;
-    font-size: 3rem;
+    font-size: 2rem;
     text-transform: uppercase;
     color: #fff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9),
@@ -43,7 +43,7 @@ nav *{
 .carousel .collection-btn{
     font-family: Poppins;
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-transform: uppercase;
     color: #fff;
     background-color: #a573a1;
@@ -51,6 +51,18 @@ nav *{
     border-radius: 5px;
     padding: 10px 20px;
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.carousel .collection-btn:focus{
+    outline: none;
+}
+
+@media screen and (max-width: 768px) {
+    .carousel .collection-btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+    
 }
 
 .carousel .collection-btn:hover{
