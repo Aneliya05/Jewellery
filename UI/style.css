@@ -141,6 +141,7 @@ nav *{
     font-weight: 300;
     font-size: 2.2rem;
     color: #641E64;
+    line-height: 1;
 }
 /*MOTO SECTION END*/
 
@@ -148,9 +149,10 @@ nav *{
 .products h2 {
     font-family: Lora, serif;
     font-weight: 700;
-    font-size: 2.1rem;
+    font-size: 2rem;
     color: #566129;
     text-align: center;
+    text-transform: uppercase;
     margin-bottom: 20px;
 
 }
@@ -158,9 +160,43 @@ nav *{
 .products h2+p {
     font-family: Montserrat, sans-serif;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #bda6bc;
     text-align: center;
     margin-bottom: 40px;
 }
+
+/* CARD STYLES */
+.card{
+    padding: 8px;
+    border-radius: 7px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+    
+}
+
+.card img{
+    width: 100%;
+    height: auto;
+    border-radius: 7px;
+}
+
+.card h5 {
+    font-family: Lora, serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #641E64;
+    margin-top: 10px;
+}
+
+/* CARD STYLES END */
 /* PRODUCTS SECTION END */

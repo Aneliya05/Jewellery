@@ -19,7 +19,7 @@
                     <img src="Images/logo.png" alt="Logo" class="img-fluid" style="width: 100px; height: 50px;">
                 </div>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="border: none;">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <!-- Logo End -->
@@ -137,7 +137,7 @@
     <!-- BANNER SECTION END -->
 
     <!-- MOTO -->
-    <div class="moto container-fluid align-items-center text-center text-dark pt-4 pb-3">
+    <div class="moto container-fluid align-items-center text-center text-dark pt-4 pb-3 ">
         <div class="container">
             <h1 class="display-4 fw-bold border-bottom border-2" style="color: #a573a1;">Élla Jewelry</h1>
             <p class="lead">Вашият магазин за изящни бижута.</p>
@@ -148,19 +148,45 @@
     <!-- PRODUCT GRID -->
     <div class="products container py-4 mt-3">
         <h2 class="text-center mb-2">Нашите Продукти</h2>
-        <p class="text-center mb-5">Разгледайте нашата колекция от ръчно изработени бижута, вдъхновени от природата и съвременните тенденции.</p>
+        <p class="text-center mb-5 mt-3 mt-md-0">Разгледайте нашата колекция от ръчно изработени бижута, вдъхновени от природата и съвременните тенденции.</p>
         <!-- PRODUCT GRID START -->
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4">
             <!-- CARD -->
             <div class="col">
                 <div class="card h-100">
                     <img src="Images/jewellery1.jpeg" class="card-img-top" alt="Product 1">
                     <div class="card-body">
-                    <h5 class="card-title">Product Name</h5>
-                    <p class="card-text">$99.99</p>
+                        <h5 class="card-title">Product Name</h5>
+                        <p class="description mt-2">
+                            <strong>Materials Used:</strong> Gold, Silver, Diamonds
+                        </p>
+                        <p class="card-text">$99.99</p>
+                        <span class="badge bg-success">In Stock </span> 
+                        <span class="badge bg-danger">Limited Edition</span>
+                        
+                    </div>
+                    <div class="card-footer d-flex justify-content-between align-items-center">
+                        <div class="quantity-btns d-flex align-items-center">
+                            <button class="btn btn-secondary" onclick="this.nextElementSibling.stepDown()">-</button>
+                            <input type="number" class="form-control d-inline w-30" value="1" min="1" max="10" style="display: inline-block;">
+                            <button class="btn btn-secondary" onclick="this.previousElementSibling.stepUp()">+</button>
+                        </div>
+                        <button class="btn btn-primary w-10 inline-block ms-1">Add to Cart</button>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- CARD END -->
+            <!-- CARD -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="Images/jewellery1.jpeg" class="card-img-top" alt="Product 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Product Name</h5>
+                        <p class="card-text">$99.99</p>
                     </div>
                     <div class="card-footer">
-                    <button class="btn btn-primary w-100">Add to Cart</button>
+                        <button class="btn btn-primary w-100">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -170,11 +196,11 @@
                 <div class="card h-100">
                     <img src="Images/jewellery1.jpeg" class="card-img-top" alt="Product 1">
                     <div class="card-body">
-                    <h5 class="card-title">Product Name</h5>
-                    <p class="card-text">$99.99</p>
+                        <h5 class="card-title">Product Name</h5>
+                        <p class="card-text">$99.99</p>
                     </div>
                     <div class="card-footer">
-                    <button class="btn btn-primary w-100">Add to Cart</button>
+                        <button class="btn btn-primary w-100">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -184,11 +210,11 @@
                 <div class="card h-100">
                     <img src="Images/jewellery1.jpeg" class="card-img-top" alt="Product 1">
                     <div class="card-body">
-                    <h5 class="card-title">Product Name</h5>
-                    <p class="card-text">$99.99</p>
+                        <h5 class="card-title">Product Name</h5>
+                        <p class="card-text">$99.99</p>
                     </div>
                     <div class="card-footer">
-                    <button class="btn btn-primary w-100">Add to Cart</button>
+                        <button class="btn btn-primary w-100">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -198,25 +224,11 @@
                 <div class="card h-100">
                     <img src="Images/jewellery1.jpeg" class="card-img-top" alt="Product 1">
                     <div class="card-body">
-                    <h5 class="card-title">Product Name</h5>
-                    <p class="card-text">$99.99</p>
+                        <h5 class="card-title">Product Name</h5>
+                        <p class="card-text">$99.99</p>
                     </div>
                     <div class="card-footer">
-                    <button class="btn btn-primary w-100">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-            <!-- CARD END -->
-            <!-- CARD -->
-            <div class="col">
-                <div class="card h-100">
-                    <img src="Images/jewellery1.jpeg" class="card-img-top" alt="Product 1">
-                    <div class="card-body">
-                    <h5 class="card-title">Product Name</h5>
-                    <p class="card-text">$99.99</p>
-                    </div>
-                    <div class="card-footer">
-                    <button class="btn btn-primary w-100">Add to Cart</button>
+                        <button class="btn btn-primary w-100">Add to Cart</button>
                     </div>
                 </div>
             </div>
