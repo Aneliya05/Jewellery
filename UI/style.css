@@ -196,6 +196,7 @@ nav *{
 
 /* CARD STYLES */
 .card{
+    width: 18rem;
     padding: 8px;
     border-radius: 7px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -213,7 +214,7 @@ nav *{
 
 .card img{
     width: 100%;
-    height: auto;
+    height: 160px;
     border-radius: 7px;
 }
 
@@ -224,7 +225,7 @@ nav *{
 .card h5 {
     font-family: Lora, serif;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: #641E64;
     margin-top: 10px;
 }
@@ -241,14 +242,14 @@ nav *{
 .card .price {
     font-family: Lora, serif;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #641E64;
     margin-bottom: 10px;
 }
 
 
 .card .card-footer {
-    padding: 0.5rem;
+    padding: 0.1rem;
      
 }
 
@@ -264,6 +265,7 @@ nav *{
     border: 0;
     width: 40%;
     margin-left: 1rem;
+    margin: 0.5rem;
 }
 
 .card .card-footer .add-to-cart-btn:hover {
@@ -276,6 +278,7 @@ nav *{
     vertical-align: middle;
     margin-right: 1px;
     color: #566129;
+    font-size: 0.1px;
 }
 
 .card .card-footer .add-to-cart-btn .cart-buy {
