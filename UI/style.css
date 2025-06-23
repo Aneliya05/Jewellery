@@ -315,7 +315,7 @@ nav *{
 .about-us-info h2 {
     font-family: Lora, serif;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #641E64;
     margin-bottom: 20px;
 }
@@ -323,7 +323,7 @@ nav *{
 .about-us-info p {
     font-family: Montserrat, sans-serif;
     font-weight: 500;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #4a3f35;
     margin-bottom: 20px;
 }
@@ -344,7 +344,7 @@ nav *{
 .contact-us h2 {
     font-family: Lora, serif;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: white;
     text-transform: uppercase;
     margin: 0.9rem !important;
@@ -353,7 +353,7 @@ nav *{
 .contact-us p {
     font-family: Montserrat, sans-serif;
     font-weight: 500;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: white;
     margin-bottom: 20px;
 }
@@ -367,12 +367,35 @@ nav *{
     border: 1px solid #641E64;
     border-radius: 5px;
     font-family: Montserrat, sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     margin: 0 auto;
 }
 
 /* CONTACT US SECTION END */
 
+/* FOOTER */
+.brand-info{
+    font-family: Montserrat, sans-serif;
+}
+
+.brand-info h5 {
+    color: #a573a1;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.brand-info span {
+    color: #bda6dc;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.copyright {
+    color: #641E64;
+    opacity: 0.7;
+    font-weight: bold;
+}
+/* FOOTER END */
 
 /* MEDIA QUERIES */
 @media screen and (max-width: 768px) and (max-height: 500px) and (orientation: landscape) {
@@ -538,10 +561,26 @@ nav *{
         margin-left: 0;
     }
 
+    
+    /* PRODUCTS SECTION RESPONSIVE END */
+
     .contact-us {
         width: 100%;
     }
-    /* PRODUCTS SECTION RESPONSIVE END */
+    
+    /* FOOTER RESPONSIVE */
+    .brand-info h5 {
+        font-size: 1rem;
+    }
+
+    .brand-info span {
+        font-size: 0.8rem;
+    }
+
+    .copyright p {
+        font-size: 0.8rem;
+    }
+    /* FOOTER RESPONSIVE END */
 }
 
 /* MEDIA QUERIES END */
