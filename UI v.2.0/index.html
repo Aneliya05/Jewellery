@@ -11,31 +11,37 @@
 <body>
     
     <!-- BANNER SECTION -->
-    <div class="banner container-fluid bg-light p-0 d-flex flex-column justify-content-between">
-        <div class="row-6">
-            <div class="logo d-flex flex-column align-items-t justify-content-center w-100 translate-end-y z-index-5">
+    <div class="banner container-fluid bg-light p-0 d-flex flex-column justify-content-between position-relative overflow-hidden">
+         <!-- Background image -->
+        <img src="Images/banner-bg.png" alt="Banner background" class="bg-img">
+        
+        <div class="row-6 z-2">
+            <div class="logo d-flex flex-column align-items-center justify-content-center w-100 translate-end-y">
                 <h5>èlla jelewry</h5>
                 <span>By Gabriela Kuneva</span>
             </div>
         </div>
-       <div class="welcome-heading row-6 d-none d-md-flex flex-column align-items-center justify-content-center w-100 translate-end-y z-index-5">          
-            <h5 class="intro display-4 fw-bold d-none d-md-block">Ръчно изработени бижута от истински цветя</h5>
-            <p class="intro-p lead d-none d-md-block">Бъди различна. Бъди уникална. Бъди видяна.</p>
-            <button class="btn btn-primary">Пазарувай сега</button>
+       <div class="welcome-heading row-6 d-flex flex-column align-items-center justify-content-center w-100 translate-end-y z-2">          
+            <h5 class="intro display-4 fw-bold d-block">Ръчно изработени бижута от истински цветя</h5>
+            <p class="intro-p lead d-block">Бъди различна. Бъди уникална. Бъди видяна.</p>
         </div>
+         <button class="btn btn-primary mb-3 mb-md-5 z-2">Пазарувай сега</button>
     </div>
     <!-- BANNER SECTION END -->
 
     <!-- PRODUCT GRID -->
     <div class="products container-fluid px-3 py-2 py-md-4 mt-3">
-        <h2 class="text-center mb-2">Нашите Продукти</h2>
+        <h2 class="text-center mt-2 mb-2">Нашите Продукти</h2>
         
         <!-- PRODUCT GRID START -->
-        <div class="products-grid d-flex flex-wrap row flex-row gx-2 gy-2 gap-md-2 justify-content-center pt-2 w-100">
+        <div class="products-grid container row row-cols-2 row-cols-sm-2 row-cols-md-4 g-3 justify-content-center">
             <!-- CARD -->
-            <div class="col-6 col-sm-6 col-md-3" style="max-width: 17rem;">
+            <div class="col-6 col-sm-6 col-md-3">
                 <div class="card">
-                    <img src="Images/Products/product.png" class="card-img-top" alt="Product 1">
+                    <div class="card-image">
+                        <img src="Images/Products/product.png" class="card-img-top" alt="Product 1">
+                    </div>
+                    
                     <div class="card-body">
                         <h5 class="card-title">Колие "Briella"</h5>
                         <p class="card-description">Колие от мъниста (в сребърно / златно)</p>
@@ -45,9 +51,12 @@
             </div>
             <!-- CARD END -->
             <!-- CARD -->
-            <div class="col-sm-2 col-md-3">
+            <div class="col-6 col-sm-6 col-md-3">
                 <div class="card">
-                    <img src="Images/Products/product.png" class="card-img-top" alt="Product 1">
+                    <div class="card-image">
+                        <img src="Images/Products/product.png" class="card-img-top" alt="Product 1">
+                    </div>
+                    
                     <div class="card-body">
                         <h5 class="card-title">Колие "Briella"</h5>
                         <p class="card-description">Колие от мъниста (в сребърно / златно)</p>
@@ -57,9 +66,12 @@
             </div>
             <!-- CARD END -->
             <!-- CARD -->
-            <div class="col-sm-2 col-md-3">
+            <div class="col-6 col-sm-6 col-md-3">
                 <div class="card">
-                    <img src="Images/Products/product.png" class="card-img-top" alt="Product 1">
+                    <div class="card-image">
+                        <img src="Images/Products/product.png" class="card-img-top" alt="Product 1">
+                    </div>
+                    
                     <div class="card-body">
                         <h5 class="card-title">Колие "Briella"</h5>
                         <p class="card-description">Колие от мъниста (в сребърно / златно)</p>
@@ -69,9 +81,12 @@
             </div>
             <!-- CARD END -->
             <!-- CARD -->
-            <div class="col-sm-2 col-md-3">
+            <div class="col-6 col-sm-6 col-md-3">
                 <div class="card">
-                    <img src="Images/Products/product.png" class="card-img-top" alt="Product 1">
+                    <div class="card-image">
+                        <img src="Images/Products/product.png" class="card-img-top" alt="Product 1">
+                    </div>
+                    
                     <div class="card-body">
                         <h5 class="card-title">Колие "Briella"</h5>
                         <p class="card-description">Колие от мъниста (в сребърно / златно)</p>
@@ -81,9 +96,12 @@
             </div>
             <!-- CARD END -->
             <!-- CARD -->
-            <div class="col-sm-2 col-md-3">
+            <div class="col-6 col-sm-6 col-md-3">
                 <div class="card">
-                    <img src="Images/Products/product.png" class="card-img-top" alt="Product 1">
+                    <div class="card-image">
+                        <img src="Images/Products/product.png" class="card-img-top" alt="Product 1">
+                    </div>
+                    
                     <div class="card-body">
                         <h5 class="card-title">Колие "Briella"</h5>
                         <p class="card-description">Колие от мъниста (в сребърно / златно)</p>
@@ -93,9 +111,12 @@
             </div>
             <!-- CARD END -->
             <!-- CARD -->
-            <div class="col-sm-2 col-md-3">
+            <div class="col-6 col-sm-6 col-md-3">
                 <div class="card">
-                    <img src="Images/Products/product.png" class="card-img-top" alt="Product 1">
+                    <div class="card-image">
+                        <img src="Images/Products/product.png" class="card-img-top" alt="Product 1">
+                    </div>
+                    
                     <div class="card-body">
                         <h5 class="card-title">Колие "Briella"</h5>
                         <p class="card-description">Колие от мъниста (в сребърно / златно)</p>
@@ -105,9 +126,12 @@
             </div>
             <!-- CARD END -->
             <!-- CARD -->
-            <div class="col-sm-2 col-md-3">
+            <div class="col-6 col-sm-6 col-md-3">
                 <div class="card">
-                    <img src="Images/Products/product.png" class="card-img-top" alt="Product 1">
+                    <div class="card-image">
+                        <img src="Images/Products/product.png" class="card-img-top" alt="Product 1">
+                    </div>
+                    
                     <div class="card-body">
                         <h5 class="card-title">Колие "Briella"</h5>
                         <p class="card-description">Колие от мъниста (в сребърно / златно)</p>
@@ -116,10 +140,55 @@
                 </div>
             </div>
             <!-- CARD END -->
-            
         </div>
     </div>
     <!-- PRODUCT GRID END -->
+
+    <!-- ABOUS US SECTION -->
+    <div class="abous-us-container container-fluid mt-3">
+        <div class="about-us text-left">
+            <h1>Бижута от истински цветя</h1>
+            <p class="lead">
+                Бижута, които съчетават естествената красота на истински цветя с изяществото на сребърни елементи и блясъка на кристали <em>Swarovski</em>. 
+                Всяко бижу е ръчно изработено с внимание към детайла, като всяко цветче е внимателно изсушено и запечатано в смола, за да запази своята нежност и красота завинаги.
+            </p>
+            <p class="lead">
+                Всяка колекция е уникална и различна. А количеството е лимитирано. Не бъди като останалите! Носейки това бижу ти си различна, уникална и видяна.
+            </p>
+            <p class="lead">
+                Нашата философия е проста: красотата е в малките детайли и естествената красота. Бижутата ни не са просто аксесоари, а емоция, спомен и израз на индивидуалност.
+            </p>
+        </div>
+    </div>
+    <!-- ABOUS US SECTION END -->
+
+    <!-- PRODUCTS VALUE SECTION -->
+    <div class="products-value-container container-fluid mt-3">
+        <h2>Стойността на това, което получавате</h2>
+        <div class="products-value d-flex flex-wrap justify-content-between">
+            <div class="item">
+                <img src="Images/icons/hand-made.png" alt="Hand-made">
+                <h3>Ръчна изработка</h3>
+            </div>
+            <div class="item">
+                <img src="Images/icons/natural-flower.png" alt="Natural flower">
+                <h3>Истинско цвете</h3>
+            </div>
+            <div class="item">
+                <img src="Images/icons/silver.png" alt="Silver 925">
+                <h3>Сребро 925</h3>
+            </div>
+            <div class="item">
+                <img src="Images/icons/swarovski-gems.png" alt="Swarovski crystals">
+                <h3>Кристали <em>Swarovski</em> </h3>
+            </div>
+            <div class="item">
+                <img src="Images/icons/beautiful-wrapping.png" alt="Beautiful wrapping">
+                <h3>Красива опаковка</h3>
+            </div>
+        </div>
+    </div>
+    <!-- PRODUCTS VALUE SECTION END -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 </body>
 </html>

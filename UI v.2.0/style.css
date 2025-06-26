@@ -18,8 +18,11 @@ nav *{
 /* BANNER */
 .banner {
     height: 92vh;
-    background: url('Images/banner-bg.png') no-repeat center center fixed;
+    /*
+    background: url('Images/banner-bg.png') no-repeat fixed;
     background-size: cover;
+    background-position: center;
+    */
     position: relative;
     display: flex;
     align-items: center;
@@ -29,6 +32,17 @@ nav *{
     margin: 5px;
     width: auto;
     border-radius: 8px;
+}
+
+.bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  object-position: top center;
+  z-index: 1; 
 }
 
 /*
@@ -58,19 +72,21 @@ nav *{
     font-style: italic;
 }
 
+/*
 .welcome-heading  {
     translate: 0 -100%; 
 }
+*/
 
 .welcome-heading h5, .welcome-heading p {
     color: #c4c38b;
     font-family: 'Great Vibes', cursive;
     text-align: center;
-    
 }
 
 .welcome-heading h5 {
     font-size: 3.5rem;
+    letter-spacing: 2.5px;
 }
 
 .welcome-heading p {
@@ -78,7 +94,7 @@ nav *{
     font-size: 1.5rem;
 }
 
-.welcome-heading .btn {
+.banner .btn {
     background-color: transparent;
     color: white;
     font-family: 'Poppins', serif;
@@ -91,7 +107,7 @@ nav *{
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, scale 0.3s ease-in-out;
 }
 
-.welcome-heading .btn:hover {
+.banner .btn:hover {
     background-color: #566129;
     scale: 1.05;
 }
@@ -111,10 +127,11 @@ nav *{
 /*PRODUCTS SECTION */
 .products {
     background-color: #c4c38b;
-    margin: 5px;
+    margin: 0.3rem;
     width: auto;
     border-radius: 8px;
 }
+
 .products-grid{
     margin: 0 auto;
 }
@@ -126,28 +143,19 @@ nav *{
     color: #566129;
     text-align: center;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
 
-}
-
-.products h2+p {
-    font-family: Montserrat, sans-serif;
-    font-weight: bold;
-    font-size: 1.1rem;
-    color: #bda6bc;
-    text-align: center;
 }
 
 /* CARD STYLES */
-.col-md-3 {
-    width: 17rem;
-}
+
 .card{
     width: 100%;
     padding: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     background-color: rgba(255, 255, 255, 0.8);
+    scale: 0.95;
 }
 
 .card:hover {
@@ -155,9 +163,19 @@ nav *{
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+.card-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
 .card img{
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease-in-out;
 }
 
 .card-body{
@@ -169,7 +187,7 @@ nav *{
 .card h5 {
     font-family: Lora, serif;
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: #641E64;
     margin-bottom: 0.3rem;
 }
@@ -177,7 +195,7 @@ nav *{
 .card .card-description {
     font-family: Montserrat, sans-serif;
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #566129;
     margin-bottom: 0.5rem;
 }
@@ -185,7 +203,7 @@ nav *{
 .card .price {
     font-family: Lora, serif;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #641E64;
     margin-bottom: 0.5rem;
 }
@@ -246,3 +264,160 @@ nav *{
 
 /* CARD STYLES END */
 /* PRODUCTS SECTION END */
+
+/*ABOUT US SECTION */
+.abous-us-container {
+    background: url('Images/about-us.png') no-repeat center bottom / cover;
+    max-height: 80vh;
+    padding: 4rem 8rem;
+    margin: 0.3rem;
+    width: auto;
+    border-radius: 8px;
+}
+
+.about-us {
+    width: 50%;
+}
+
+.about-us h1 {
+    font-family: Great Vibes, cursive;  
+    font-weight: 500;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    color: #641E64;
+    text-align: center;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.about-us p {
+    font-family: Lora, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: white;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+/* ABOUT US SECTION END */
+
+/* PRODUCTS VALUE CONTAINER */
+.products-value-container {
+    height: 60vh;
+    padding: 4rem 8rem;
+    margin: 0.3rem;
+    width: auto;
+    border-radius: 8px;
+    background-color: #c4c38b;
+}
+
+.products-value-container h2 {
+    font-family: Great Vibes, cursive;  
+    font-weight: 500;
+    font-size: 3rem;
+    color: #641E64;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.products-value .item {
+    scale: 0.8;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+}
+
+.products-value .item:hover {
+    scale: 0.9;
+    transition: scale 0.3s ease-in-out;
+}
+
+.products-value .item img {
+    width: auto;
+    height: auto;
+    object-fit: cover;
+}
+
+.products-value .item h3 {
+    font-family: Lora, serif;
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: #641E64;
+    margin-top: 10px;
+}
+/* PRODUCTS VALUE CONTAINER END */
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+    /* BANNER */
+    .banner {
+        max-height: 45vh;
+    }
+
+    
+    /*
+    .logo img {
+        height: 100px;
+        margin-top: 1rem;
+        opacity: 0.6;
+        
+    }
+    */
+
+    .logo h5 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+        margin-top: 0.3rem;
+    }
+
+    .logo span {
+        font-size: 0.6rem;
+    }
+
+
+    .welcome-heading h5 {
+        font-size: 1.8rem;
+        letter-spacing: 2.5px;
+        padding: 0 1rem;
+    }
+
+    .welcome-heading p {
+        font-size: 0.9rem;
+        padding: 0 1rem;
+    }
+
+    .banner .btn {
+        letter-spacing: 1.2px;
+        padding: 0.4rem 1rem;
+        font-size: 0.7rem;
+    }
+
+    /* BANNER END */
+
+    /*PRODUCTS SECTION */
+    .products h2 {
+        font-size: 2rem;
+    }
+
+    /* CARD STYLES */
+
+    .card{
+        padding: 6px;
+        scale: 1;
+    }
+
+    .card-image {
+        width: 100%;
+        height: 150px;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+
+    .card-body{
+        padding: 0.3rem;
+    }
+
+    .card .card-description { 
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
