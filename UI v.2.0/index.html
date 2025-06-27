@@ -30,11 +30,11 @@
     <!-- BANNER SECTION END -->
 
     <!-- PRODUCT GRID -->
-    <div class="products container-fluid px-3 py-2 py-md-4 mt-3">
-        <h2 class="text-center mt-2 mb-2">Нашите Продукти</h2>
+    <div class="products container-fluid px-3 py-3 py-md-4 mt-3">
+        <h2 class="text-center mt-3 mb-2">Нашите Продукти</h2>
         
         <!-- PRODUCT GRID START -->
-        <div class="products-grid container row row-cols-2 row-cols-sm-2 row-cols-md-4 g-3 justify-content-center">
+        <div class="products-grid container row row-cols-2 row-cols-sm-2 row-cols-md-3 g-3 justify-content-center">
             <!-- CARD -->
             <div class="col-6 col-sm-6 col-md-3">
                 <div class="card">
@@ -148,16 +148,59 @@
     <div class="abous-us-container container-fluid mt-3">
         <div class="about-us text-left">
             <h1>Бижута от истински цветя</h1>
-            <p class="lead">
-                Бижута, които съчетават естествената красота на истински цветя с изяществото на сребърни елементи и блясъка на кристали <em>Swarovski</em>. 
-                Всяко бижу е ръчно изработено с внимание към детайла, като всяко цветче е внимателно изсушено и запечатано в смола, за да запази своята нежност и красота завинаги.
-            </p>
-            <p class="lead">
-                Всяка колекция е уникална и различна. А количеството е лимитирано. Не бъди като останалите! Носейки това бижу ти си различна, уникална и видяна.
-            </p>
-            <p class="lead">
-                Нашата философия е проста: красотата е в малките детайли и естествената красота. Бижутата ни не са просто аксесоари, а емоция, спомен и израз на индивидуалност.
-            </p>
+            <div class="paragraphs container d-none d-md-block">
+                <p class="lead">
+                    Бижута, които съчетават естествената красота на истински цветя с изяществото на сребърни елементи и блясъка на кристали <em>Swarovski</em>. 
+                    Всяко бижу е ръчно изработено с внимание към детайла, като всяко цветче е внимателно изсушено и запечатано в смола, за да запази своята нежност и красота завинаги.
+                </p>
+                <p class="lead">
+                    Всяка колекция е уникална и различна. А количеството е лимитирано. Не бъди като останалите! Носейки това бижу ти си различна, уникална и видяна.
+                </p>
+                <p class="lead">
+                    Нашата философия е проста: красотата е в малките детайли и естествената красота. Бижутата ни не са просто аксесоари, а емоция, спомен и израз на индивидуалност.
+                </p>
+            </div>
+            <!-- Flower Button For Small Screens -->
+            <div class="about-us-section d-md-none d-flex flex-column align-items-center justify-content-center mt-2">
+            <button type="button"
+                    id="about-us-flower"
+                    class="phone-flower"
+                    aria-label="Натисни, за да видиш повече"
+                    data-bs-toggle="modal"
+                    data-bs-target="#flowerModal">
+            </button>
+            <span class="instruction small text-center mt-2">Натисни цветчето</span>
+            </div>
+
+            <!-- Flower Modal -->
+            <div class="modal fade" id="flowerModal" tabindex="-1" aria-labelledby="flowerModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content flower-popover">
+                    <div class="modal-header">
+                        <img src="Images/icons/orchid-transparent.png" alt="Orchid" class="img-fluid orchid-transparent">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Затвори"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="paragraphs container">
+                            <p class="lead">
+                                Бижута, които съчетават естествената красота на истински цветя с изяществото на сребърни елементи и блясъка на кристали <em>Swarovski</em>. 
+                                Всяко бижу е ръчно изработено с внимание към детайла, като всяко цветче е внимателно изсушено и запечатано в смола, за да запази своята нежност и красота завинаги.
+                            </p>
+                            <p class="lead">
+                                Всяка колекция е уникална и различна. А количеството е лимитирано. Не бъди като останалите! Носейки това бижу ти си различна, уникална и видяна.
+                            </p>
+                            <p class="lead">
+                                Нашата философия е проста: красотата е в малките детайли и естествената красота. Бижутата ни не са просто аксесоари, а емоция, спомен и израз на индивидуалност.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <img src="Images/icons/orchid-transparent.png" alt="Orchid" class="img-fluid orchid-transparent">
+                    </div>
+                </div>
+            </div>
+            </div>
+
         </div>
     </div>
     <!-- ABOUS US SECTION END -->
@@ -165,30 +208,91 @@
     <!-- PRODUCTS VALUE SECTION -->
     <div class="products-value-container container-fluid mt-3">
         <h2>Стойността на това, което получавате</h2>
-        <div class="products-value d-flex flex-wrap justify-content-between">
-            <div class="item">
+        <div class="products-value row justify-content-center">
+            <div class="item col-4 col-md-2 d-flex flex-column align-items-center">
                 <img src="Images/icons/hand-made.png" alt="Hand-made">
                 <h3>Ръчна изработка</h3>
             </div>
-            <div class="item">
+            <div class="item col-4 col-md-2 d-flex flex-column align-items-center">
                 <img src="Images/icons/natural-flower.png" alt="Natural flower">
                 <h3>Истинско цвете</h3>
             </div>
-            <div class="item">
+            <div class="item col-4 col-md-2 d-flex flex-column align-items-center">
                 <img src="Images/icons/silver.png" alt="Silver 925">
                 <h3>Сребро 925</h3>
             </div>
-            <div class="item">
+            <div class="item col-4 col-md-2 d-flex flex-column align-items-center ">
                 <img src="Images/icons/swarovski-gems.png" alt="Swarovski crystals">
                 <h3>Кристали <em>Swarovski</em> </h3>
             </div>
-            <div class="item">
+            <div class="item col-4 col-md-2 d-flex flex-column align-items-center">
                 <img src="Images/icons/beautiful-wrapping.png" alt="Beautiful wrapping">
                 <h3>Красива опаковка</h3>
             </div>
         </div>
     </div>
     <!-- PRODUCTS VALUE SECTION END -->
+
+     <!-- CONTACT US -->
+    <div class="contact-us-container container-fluid px-0 mx-0 mt-3">
+        <div class="contact-us container-fluid text-center">
+            <h2 class="display-4 fw-bold mb-4">Свържете се с нас</h2>
+            <p class="lead">Имате въпроси или нужда от помощ? Ние сме тук, за да помогнем!</p>
+            <form>
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Вашето име" required>
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Вашият имейл" required>
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" rows="4" placeholder="Вашето съобщение" required></textarea>
+                </div>
+                <button type="submit" class="btn-styles btn">Изпратете</button>
+            </form>
+        </div>
+    </div>
+    <!-- CONTACT US END -->
+
+    <!-- FOOTER -->
+    <div class="footer-container container-fluid bg-light py-4">
+        <div class="container text-center">
+            <div class="brand-info d-flex flex-wrap row gx-2 gy-2 gap-md-4 pt-2 text-center align-items-center justify-content-between">
+                <div class="col-md-3 contacts d-flex flex-column flex-wrap mb-2 mb-md-0">
+                    <h5>Контакти</h5>
+                    <span>
+                        <i class="bi bi-telephone-fill"></i>
+                        0876 12 3456
+                    </span>
+                    <span>
+                        <i class="bi bi-envelope-at-fill"></i>
+                         ellajewelry@gmail.com
+                    </span>
+                </div>
+                <div class="col-md-3 info d-flex flex-column justify-content-center align-items-center mb-2 mb-md-0">
+                    <h5>Информация</h5>
+                    <span>Доставка: 5 работни дни</span>
+                    <span>Без право на връщане</span>
+                    <span>Начин на плащане: наложен платеж</span>
+                    <span>Банков превод</span>
+                </div>
+                <div class="col-md-3 faq d-flex flex-column justify-content-center mb-2 mb-md-0">
+                    <h5>Често задавани въпроси</h5>
+                    <span>Как да поръчам?</span>
+                    <span>Колко струва доставката?</span>
+                </div>
+            </div>
+            <div class="copyright mt-3" style="border-top: 1px solid #a573a1;">
+                <p class="mb-0 pt-3">© 2025 Élla Jewelry. Всички права запазени.</p>
+                <p class="mb-0">
+                    <a href="#" class="text-decoration-none">Privacy Policy</a> | 
+                    <a href="#" class="text-decoration-none">Terms of Service</a>
+                </p>
+            </div>
+            
+        </div>
+    </div>
+    <!-- FOOTER END -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 </body>
 </html>

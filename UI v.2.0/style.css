@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+* {
+    box-sizing: border-box;
+}
 nav *{
     color: #641E64;
     font-weight: 500;
@@ -208,7 +211,7 @@ nav *{
     margin-bottom: 0.5rem;
 }
 
-
+/* CARD STYLES END */
 
 
 /* MODALS STYLES */
@@ -262,7 +265,6 @@ nav *{
     }
 /* MODAL STYLES END */
 
-/* CARD STYLES END */
 /* PRODUCTS SECTION END */
 
 /*ABOUT US SECTION */
@@ -286,8 +288,8 @@ nav *{
     letter-spacing: 2px;
     color: #641E64;
     text-align: center;
-    margin-bottom: 20px;
-    text-align: left;
+    margin-bottom: 1.25rem;
+    text-align: center;
 }
 
 .about-us p {
@@ -341,9 +343,116 @@ nav *{
     font-weight: 500;
     font-size: 1.3rem;
     color: #641E64;
-    margin-top: 10px;
+    margin-top: 0.6rem;
 }
 /* PRODUCTS VALUE CONTAINER END */
+
+
+/* CONTACT US SECTION */
+.contact-us-container {
+    margin: 0.3rem;
+}
+.contact-us {
+    width: auto;
+    background-color: #bda6dc;
+    padding: 40px 20px;
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    margin: 0.3rem;
+}
+
+.contact-us h2 {
+    font-family: Lora, serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white;
+    text-transform: uppercase;
+    margin: 0.9rem !important;
+}
+
+.contact-us p {
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 20px;
+}
+
+
+.contact-us form input,
+.contact-us form textarea {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #641E64;
+    border-radius: 5px;
+    font-family: Montserrat, sans-serif;
+    font-size: 0.8rem;
+    margin: 0 auto;
+}
+
+.contact-us .btn-styles {
+    font-family: Montserrat, sans-serrif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #641E64;
+    background-color: transparent;
+    border: 1px solid #641E64;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+}
+
+.btn-styles:hover {
+    background-color: #641E64;
+    color: #fff;
+    transform: scale(1.05);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.btn-styles:focus{
+    outline: none;
+}
+
+/* CONTACT US SECTION END */
+
+/* FOOTER */
+.footer-container {
+    margin: 0.3rem;
+    width: auto;
+    border-radius: 8px;
+}
+
+.brand-info{
+    font-family: Montserrat, sans-serif;
+}
+
+.brand-info h5 {
+    color: #a573a1;
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-family: Lora, serif;
+}
+
+.brand-info span {
+    color: #bda6dc;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.copyright {
+    color: #641E64;
+    opacity: 0.7;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+/* FOOTER END */
+
+
 
 /* MEDIA QUERIES */
 @media (max-width: 768px) {
@@ -351,7 +460,6 @@ nav *{
     .banner {
         max-height: 45vh;
     }
-
     
     /*
     .logo img {
@@ -374,7 +482,7 @@ nav *{
 
 
     .welcome-heading h5 {
-        font-size: 1.8rem;
+        font-size: 1.9rem;
         letter-spacing: 2.5px;
         padding: 0 1rem;
     }
@@ -394,7 +502,7 @@ nav *{
 
     /*PRODUCTS SECTION */
     .products h2 {
-        font-size: 2rem;
+        font-size: 1.3rem;
     }
 
     /* CARD STYLES */
@@ -405,14 +513,17 @@ nav *{
     }
 
     .card-image {
-        width: 100%;
         height: 150px;
-        overflow: hidden;
-        border-radius: 8px;
     }
 
     .card-body{
         padding: 0.3rem;
+    }
+
+    .card h5 {
+        font-size: 1rem;
+        color: #641E64;
+        margin-bottom: 0.3rem;
     }
 
     .card .card-description { 
@@ -420,4 +531,183 @@ nav *{
         text-overflow: ellipsis;
         white-space: nowrap;
     }
+
+    .card .price {
+        font-size: 0.9rem;
+        margin-bottom: 0;
+    }
+
+    /* CARD STYLES END */
+
+    /* PRODUCTS SECTION END */
+
+    /*ABOUT US SECTION */
+    .abous-us-container {
+        background: url('Images/about-us-mobile.png') no-repeat;
+        background-size: cover;
+        background-position: bottom;
+        /*background-attachment: fixed;*/
+        height: 80vh;
+        padding: 2rem 4rem;
+    }
+
+    .about-us {
+        width: 100%;
+    }
+
+    .about-us h1 { 
+        font-size: 2.2rem;
+        letter-spacing: 1px; 
+        margin-bottom: 0;
+    }
+
+    .about-us p {
+        font-size: 0.5rem;
+        color: white;
+        text-align: justify;
+        margin-bottom: 20px;
+    }
+
+    /* FLOWER POPOVER */
+    .phone-flower{
+        background: url(Images/icons/orchid.png); 
+        background-position: center; 
+        background-size: cover; 
+        height: 80px; 
+        width: 80px;
+        border: unset;
+    }
+
+    @keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+    }
+
+    .phone-flower {
+    animation: pulse 2s infinite;
+    }
+
+    /* Popover styles applied to modal */
+    .flower-popover {
+        background-color: #bda6db;
+        border: 1px solid #e2c9b3;
+        border-radius: 12px;
+        color: #4a3f35;
+        font-size: 14px;
+        padding-bottom: 0.2rem;
+        height: auto;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .flower-popover .modal-header {
+        font-weight: bold;
+        font-family: Lora, sans-serif;
+        color: #a573a1;
+    }
+
+    .flower-popover .modal-title {
+        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .flower-popover .modal-body {
+        border-bottom: 1px solid #ffffff;
+        height: auto;
+    }
+
+    .flower-popover .modal-body p{
+        color: white;
+        font-size: 0.9rem;
+    }
+
+    .flower-popover .modal-body p:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .about-us-section .instruction{
+        font-family: Montserrat, sans-serif;
+        font-weight: 500;
+        font-style: italic;
+        font-size: 0.6rem;
+        width: auto;
+        color: rgba(0, 0, 0, 0.5);
+    }
+
+    .flower-popover .modal-footer {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+    }
+
+    .flower-popover .orchid-transparent {
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+
+    }
+
+    .flower-popover .orchid-transparent  {
+    animation: pulse 2s infinite;
+    }
+
+    /* FLOWER POPOVER END */
+    /* ABOUT US SECTION END */
+
+    /* PRODUCTS VALUE CONTAINER */
+    .products-value-container {
+        min-height: 70vh;
+        padding: 2rem 2rem;
+        width: auto;
+    }
+
+    .products-value-container h2 {
+        font-size: 2.2rem;
+        margin-bottom: 0;
+    }
+
+    .products-value .item {
+        scale: 0.675;
+    }
+
+    .products-value .item:hover {
+        scale: 0.68;
+    }
+
+    .products-value .item img {
+        width: auto;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .products-value .item h3 {
+        font-size: 1.rem;
+    }
+
+    .products-value .item:nth-child(4), .products-value .item:nth-child(5) {
+        translate: 0 -20%;
+    }
+    /* PRODUCTS VALUE CONTAINER END */
+
+    .contact-us {
+        width: 100%;
+    }
+    
+    /* FOOTER RESPONSIVE */
+    .brand-info h5 {
+        font-size: 1rem;
+    }
+
+    .brand-info span {
+        font-size: 0.8rem;
+    }
+
+    .copyright p {
+        font-size: 0.8rem;
+    }
+
 }
+
