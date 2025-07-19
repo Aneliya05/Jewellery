@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,9 @@ namespace EllaJewelry.Infrastructure.Data.Entities
         public int ID { get; set; }
 
         [Required]
-        public virtual Category Category { get; set; }
+        [ForeignKey("Category")]
+        public int CategoryID { get; set; }
+        public ProductCategory Category { get; set; }
 
         [Required]
         [StringLength(100, MinimumLength = 2)]
@@ -33,7 +36,7 @@ namespace EllaJewelry.Infrastructure.Data.Entities
         public string SKU { get; set; }
 
         [Required]
-        public uint Quantity { get; set; } //available quantity
+        public uint Availability { get; set; } //available quantity
 
         [AllowNull]
         [StringLength(500)]

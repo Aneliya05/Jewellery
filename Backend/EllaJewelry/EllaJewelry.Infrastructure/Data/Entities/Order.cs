@@ -69,28 +69,15 @@ namespace EllaJewelry.Infrastructure.Data.Entities
         [DataType(DataType.Date)]
         public DateTime? ForecastDateDelivered { get; set;}
 
+        public OrderStatus Status { get; set; } = OrderStatus.Pending;
+
         public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+
+        public ICollection<OrderService> ServiceOrders { get; set; } = new List<OrderService>();
 
         public Order()
         {
             this.TotalPrice = this.CalculatedTotalPrice;
         }
-    }
-
-    public class OrderItem
-    {
-        [ForeignKey("Order")]
-        public int OrderID { get; set; }
-        public Order Order { get; set; }
-
-        [ForeignKey("Product")]
-        public int ProductID { get; set; }
-        public Product Product { get; set; }
-
-        [Required]
-        public int Quantity { get; set; }
-
-        [DataType(DataType.Currency)]
-        public decimal PriceAtPurchase { get; private set; }
     }
 }

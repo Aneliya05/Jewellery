@@ -14,8 +14,6 @@ namespace EllaJewelry.Infrastructure.Data.Entities
 {
     public class PersonalizedProduct : Product
     {
-        public override Category Category => Category.PersonalizedNecklace;
-
         public ICollection<Element> Elements { get; set; } = new List<Element>();
         public PersonalizedProduct()
         {
@@ -23,28 +21,5 @@ namespace EllaJewelry.Infrastructure.Data.Entities
         }
     }
 
-    public class Element
-    {
-        [Key]
-        public int ID { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string Type { get; set; } // e.g., "Charm", "Pendant", "Engraving"
-
-        [StringLength(100)]
-        public string Value { get; set; } // e.g., "Heart Shape", "Name: Ella"
-
-        [AllowNull]
-        public int Order { get; set; } // For sorting the elements in a necklace
-
-        [ForeignKey("PersonalizedProduct")]
-        public int ProductID { get; set; }
-
-        public PersonalizedProduct PersonalizedProduct { get; set; }
-        public Element()
-        {
-            
-        }
-    }
+   
 }

@@ -6,15 +6,11 @@ using System.Threading.Tasks;
 
 namespace EllaJewelry.Infrastructure.Data.Enums
 {
-    public enum Category
+    public enum ItemCategory
     {
-        Bracelet,
-        Necklace,
-        Earrings,
-        Ring,
-        Hairclip,
-        PersonalizedNecklace,
-        WeddingNecklace,
-        WeddingBouquetService   
+        Product,
+        Service,
+        Both,
+        Neither
     }
 }

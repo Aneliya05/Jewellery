@@ -1,0 +1,15 @@
+C:\Users\aneli\Desktop\Gabi's website\Jewellery\Backend\EllaJewelry\EllaJewelry.Infrastructure\bin\Debug\net8.0\EllaJewelry.Infrastructure.deps.json
+C:\Users\aneli\Desktop\Gabi's website\Jewellery\Backend\EllaJewelry\EllaJewelry.Infrastructure\bin\Debug\net8.0\EllaJewelry.Infrastructure.runtimeconfig.json
+C:\Users\aneli\Desktop\Gabi's website\Jewellery\Backend\EllaJewelry\EllaJewelry.Infrastructure\bin\Debug\net8.0\EllaJewelry.Infrastructure.dll
+C:\Users\aneli\Desktop\Gabi's website\Jewellery\Backend\EllaJewelry\EllaJewelry.Infrastructure\bin\Debug\net8.0\EllaJewelry.Infrastructure.pdb
+C:\Users\aneli\Desktop\Gabi's website\Jewellery\Backend\EllaJewelry\EllaJewelry.Infrastructure\obj\Debug\net8.0\EllaJewelry.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\aneli\Desktop\Gabi's website\Jewellery\Backend\EllaJewelry\EllaJewelry.Infrastructure\obj\Debug\net8.0\EllaJewelry.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aneli\Desktop\Gabi's website\Jewellery\Backend\EllaJewelry\EllaJewelry.Infrastructure\obj\Debug\net8.0\EllaJewelry.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\aneli\Desktop\Gabi's website\Jewellery\Backend\EllaJewelry\EllaJewelry.Infrastructure\obj\Debug\net8.0\EllaJewelry.Infrastructure.AssemblyInfo.cs
+C:\Users\aneli\Desktop\Gabi's website\Jewellery\Backend\EllaJewelry\EllaJewelry.Infrastructure\obj\Debug\net8.0\EllaJewelry.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\aneli\Desktop\Gabi's website\Jewellery\Backend\EllaJewelry\EllaJewelry.Infrastructure\obj\Debug\net8.0\EllaJewelry.Infrastructure.sourcelink.json
+C:\Users\aneli\Desktop\Gabi's website\Jewellery\Backend\EllaJewelry\EllaJewelry.Infrastructure\obj\Debug\net8.0\EllaJewelry.Infrastructure.dll
+C:\Users\aneli\Desktop\Gabi's website\Jewellery\Backend\EllaJewelry\EllaJewelry.Infrastructure\obj\Debug\net8.0\refint\EllaJewelry.Infrastructure.dll
+C:\Users\aneli\Desktop\Gabi's website\Jewellery\Backend\EllaJewelry\EllaJewelry.Infrastructure\obj\Debug\net8.0\EllaJewelry.Infrastructure.pdb
+C:\Users\aneli\Desktop\Gabi's website\Jewellery\Backend\EllaJewelry\EllaJewelry.Infrastructure\obj\Debug\net8.0\EllaJewelry.Infrastructure.genruntimeconfig.cache
+C:\Users\aneli\Desktop\Gabi's website\Jewellery\Backend\EllaJewelry\EllaJewelry.Infrastructure\obj\Debug\net8.0\ref\EllaJewelry.Infrastructure.dll
