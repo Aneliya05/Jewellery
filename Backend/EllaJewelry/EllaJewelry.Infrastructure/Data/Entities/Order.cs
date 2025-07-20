@@ -52,10 +52,10 @@ namespace EllaJewelry.Infrastructure.Data.Entities
         public string GreetingCardName { get; set; }
 
         [AllowNull]
-        public string Comment { get; set; }
+        public string? Comment { get; set; }
 
         [AllowNull]
-        public string PromoCode { get; set; }
+        public string? PromoCode { get; set; }
 
         [NotMapped]
         public decimal CalculatedTotalPrice => OrderItems.Sum(x => x.Quantity * x.PriceAtPurchase);
@@ -72,8 +72,6 @@ namespace EllaJewelry.Infrastructure.Data.Entities
         public OrderStatus Status { get; set; } = OrderStatus.Pending;
 
         public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
-
-        public ICollection<OrderService> ServiceOrders { get; set; } = new List<OrderService>();
 
         public Order()
         {

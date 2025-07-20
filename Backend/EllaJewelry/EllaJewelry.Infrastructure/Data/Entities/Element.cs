@@ -24,21 +24,21 @@ namespace EllaJewelry.Infrastructure.Data.Entities
 
         [AllowNull]
         [StringLength(100)]
-        public string Name { get; set; } // e.g., "Heart Shape", "Name: Ella"
+        public string? Name { get; set; } // e.g., "Heart Shape", "Name: Ella"
 
         [AllowNull]
-        public int Order { get; set; } // For sorting the elements in a necklace
+        public int? NumberInSorting { get; set; } // For sorting the elements in a necklace
 
         [AllowNull]
-        [ForeignKey("Product")]
-        public int ProductID { get; set; }
+        [ForeignKey("PersonalizedProduct")]
+        public int? PersonalizedProductID { get; set; }
 
         [AllowNull]
-        [ForeignKey("ServiceOrder")]
-        public int ServicesOrderID { get; set; }
+        [ForeignKey("Service")]
+        public int? ServiceID { get; set; }
 
-        public Product? Product { get; set; }
-        public OrderService? ServiceOrder { get; set; }
+        public PersonalizedProduct? PersonalizedProduct { get; set; }
+        public Service? Service { get; set; }
         public Element()
         {
 

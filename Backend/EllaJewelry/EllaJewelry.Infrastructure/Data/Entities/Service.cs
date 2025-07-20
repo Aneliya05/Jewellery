@@ -26,7 +26,7 @@ namespace EllaJewelry.Infrastructure.Data.Entities
         [AllowNull]
         [StringLength(500)]
         [DataType(DataType.MultilineText)]
-        public string Description { get; set; } //string?
+        public string? Description { get; set; } //string?
 
         [Required]
         [DataType(DataType.ImageUrl)]

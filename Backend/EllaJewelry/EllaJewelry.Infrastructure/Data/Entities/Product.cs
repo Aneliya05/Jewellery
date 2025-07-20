@@ -16,11 +16,6 @@ namespace EllaJewelry.Infrastructure.Data.Entities
         public int ID { get; set; }
 
         [Required]
-        [ForeignKey("Category")]
-        public int CategoryID { get; set; }
-        public ProductCategory Category { get; set; }
-
-        [Required]
         [StringLength(100, MinimumLength = 2)]
         [Display(Name = "Give a name to your incredible jewelry")]
         public string Name { get; set; }
@@ -36,6 +31,7 @@ namespace EllaJewelry.Infrastructure.Data.Entities
         public string SKU { get; set; }
 
         [Required]
+        [Range(0, int.MaxValue, ErrorMessage = "Availability cannot be negative.")]
         public uint Availability { get; set; } //available quantity
 
         [AllowNull]
@@ -47,8 +43,13 @@ namespace EllaJewelry.Infrastructure.Data.Entities
         [DataType(DataType.ImageUrl)]
         public string ImageUrl { get; set; }
 
-        public ICollection<ProductImage> Images { get; set; }  = new List<ProductImage>();
+        [Required]
+        [ForeignKey("Category")]
+        public int CategoryID { get; set; }
+        public ProductCategory? Category { get; set; }
 
+        public ICollection<ProductImage> Images { get; set; }  = new List<ProductImage>();
+        public ICollection<OrderItem> OrderItems { get; set; }
 
         public Product()
         {

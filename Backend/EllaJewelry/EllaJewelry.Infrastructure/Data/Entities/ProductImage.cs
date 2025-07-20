@@ -19,7 +19,7 @@ namespace EllaJewelry.Infrastructure.Data.Entities
         [ForeignKey("Product")]
         public int ProductID { get; set; }
 
-        public Product Product { get; set; }
+        public Product? Product { get; set; }
 
         public ProductImage()
         {

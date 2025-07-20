@@ -17,24 +17,49 @@ namespace EllaJewelry.Infrastructure.Data.Entities
         [AllowNull]
         [StringLength(500)]
         [DataType(DataType.MultilineText)]
-        public string DesireDescription { get; set; } //string?
+        public string? DesireDescription { get; set; } //string?
+
         [ForeignKey("Order")]
         public int OrderID { get; set; }
         public Order Order { get; set; }
 
         [ForeignKey("Product")]
-        public int ProductID { get; set; }
-        public Product Product { get; set; }
+        [AllowNull]
+        public int? ProductID { get; set; }
+        public Product? Product { get; set; }
 
         [ForeignKey("Service")]
-        public int ServiceID { get; set; }
-        public Service Service { get; set; }
-
+        [AllowNull]
+        public int? ServiceID { get; set; }
+        public Service? Service { get; set; }
 
         [Required]
+        [Range(1, int.MaxValue, ErrorMessage = "Quantity must be at least 1.")]
         public int Quantity { get; set; }
 
         [DataType(DataType.Currency)]
         public decimal PriceAtPurchase { get; private set; }
+
+        public OrderItem()
+        {
+            
+        }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (ProductID == null && ServiceID == null)
+            {
+                yield return new ValidationResult(
+                    "Either ProductID or ServiceID must be provided.",
+                    new[] { nameof(ProductID), nameof(ServiceID) });
+            }
+
+            if (ProductID != null && ServiceID != null)
+            {
+                yield return new ValidationResult(
+                    "You cannot set both ProductID and ServiceID at the same time.",
+                    new[] { nameof(ProductID), nameof(ServiceID) });
+            }
+        }
     }
 }

@@ -9,6 +9,8 @@ namespace EllaJewelry.Infrastructure.Data.Entities
 {
     public class User : IdentityUser
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public bool SubscribedToNewsletter { get; set; } = false;
 
     }
