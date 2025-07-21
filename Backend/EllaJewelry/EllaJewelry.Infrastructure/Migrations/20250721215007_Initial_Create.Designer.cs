@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EllaJewelry.Infrastructure.Migrations
 {
     [DbContext(typeof(EllaJewelryDbContext))]
-    [Migration("20250720232547_Initial_Create")]
+    [Migration("20250721215007_Initial_Create")]
     partial class Initial_Create
     {
         /// <inheritdoc />
@@ -47,9 +47,6 @@ namespace EllaJewelry.Infrastructure.Migrations
                     b.Property<int?>("PersonalizedProductID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PersonalizedProductID1")
-                        .HasColumnType("int");
-
                     b.Property<int?>("ServiceID")
                         .HasColumnType("int");
 
@@ -61,8 +58,6 @@ namespace EllaJewelry.Infrastructure.Migrations
                     b.HasKey("ID");
 
                     b.HasIndex("PersonalizedProductID");
-
-                    b.HasIndex("PersonalizedProductID1");
 
                     b.HasIndex("ServiceID");
 
@@ -152,16 +147,10 @@ namespace EllaJewelry.Infrastructure.Migrations
                     b.Property<int>("OrderID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("OrderID1")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("PriceAtPurchase")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("ProductID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ProductID1")
                         .HasColumnType("int");
 
                     b.Property<int>("Quantity")
@@ -170,22 +159,13 @@ namespace EllaJewelry.Infrastructure.Migrations
                     b.Property<int?>("ServiceID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ServiceId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("OrderID");
 
-                    b.HasIndex("OrderID1");
-
                     b.HasIndex("ProductID");
 
-                    b.HasIndex("ProductID1");
-
                     b.HasIndex("ServiceID");
-
-                    b.HasIndex("ServiceId");
 
                     b.ToTable("OrderItems", t =>
                         {
@@ -208,7 +188,6 @@ namespace EllaJewelry.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
@@ -229,9 +208,6 @@ namespace EllaJewelry.Infrastructure.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("ProductCategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("SKU")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -240,8 +216,6 @@ namespace EllaJewelry.Infrastructure.Migrations
                     b.HasKey("ID");
 
                     b.HasIndex("CategoryID");
-
-                    b.HasIndex("ProductCategoryId");
 
                     b.ToTable("Products");
 
@@ -283,14 +257,9 @@ namespace EllaJewelry.Infrastructure.Migrations
                     b.Property<int>("ProductID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ProductID1")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ProductID");
-
-                    b.HasIndex("ProductID1");
 
                     b.ToTable("ProductImages");
                 });
@@ -404,41 +373,41 @@ namespace EllaJewelry.Infrastructure.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7604df8a-fe16-4ec9-95eb-fd2aeeee99a3",
-                            Email = "admin2005@gmail.com",
+                            ConcurrencyStamp = "99f22039-838f-4f18-87da-cb782c29e21f",
+                            Email = "*****",
                             EmailConfirmed = true,
-                            FirstName = "Aneliya",
-                            LastName = "Lyavova",
+                            FirstName = "*****",
+                            LastName = "*****",
                             LockoutEnabled = false,
-                            NormalizedEmail = "ADMIN2005@GMAIL.COM",
-                            NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAiFFaGui3Bebsz1/2KAu/KGKR2SzP7MxjG3/amSYOgjyj8v3aP+XRjzepPYhZx6uQ==",
-                            PhoneNumber = "0876764445",
+                            NormalizedEmail = "*****",
+                            NormalizedUserName = "*****",
+                            PasswordHash = "*****",
+                            PhoneNumber = "*****",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             SubscribedToNewsletter = false,
                             TwoFactorEnabled = false,
-                            UserName = "Admin"
+                            UserName = "*****"
                         },
                         new
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "bb02d148-f2fc-4660-841d-e16dd85b0f75",
-                            Email = "contact.ellajewelry@gmail.com",
+                            ConcurrencyStamp = "7295b807-302e-457c-9e24-1b41d1c57121",
+                            Email = "*****",
                             EmailConfirmed = true,
-                            FirstName = "Gabriela",
-                            LastName = "Kuneva",
+                            FirstName = "*****",
+                            LastName = "*****",
                             LockoutEnabled = false,
-                            NormalizedEmail = "CONTACT.ELLAJEWELRY@GMAIL.COM",
-                            NormalizedUserName = "GABIOWNER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEO4+XEnYqVlZeutm++rKyFIsJiij61jy6CSLwOZK9ZPjjH4Aytc4Cvkp3gemu1KZpQ==",
-                            PhoneNumber = "0887072410",
+                            NormalizedEmail = "*****",
+                            NormalizedUserName = "*****",
+                            PasswordHash = "*****",
+                            PhoneNumber = "*****",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             SubscribedToNewsletter = false,
                             TwoFactorEnabled = false,
-                            UserName = "GabiOwner"
+                            UserName = "*****"
                         });
                 });
 
@@ -611,16 +580,12 @@ namespace EllaJewelry.Infrastructure.Migrations
             modelBuilder.Entity("EllaJewelry.Infrastructure.Data.Entities.Element", b =>
                 {
                     b.HasOne("EllaJewelry.Infrastructure.Data.Entities.PersonalizedProduct", "PersonalizedProduct")
-                        .WithMany()
+                        .WithMany("Elements")
                         .HasForeignKey("PersonalizedProductID")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("EllaJewelry.Infrastructure.Data.Entities.PersonalizedProduct", null)
-                        .WithMany("Elements")
-                        .HasForeignKey("PersonalizedProductID1");
-
                     b.HasOne("EllaJewelry.Infrastructure.Data.Entities.Service", "Service")
-                        .WithMany()
+                        .WithMany("Elements")
                         .HasForeignKey("ServiceID")
                         .OnDelete(DeleteBehavior.Cascade);
 
@@ -632,32 +597,20 @@ namespace EllaJewelry.Infrastructure.Migrations
             modelBuilder.Entity("EllaJewelry.Infrastructure.Data.Entities.OrderItem", b =>
                 {
                     b.HasOne("EllaJewelry.Infrastructure.Data.Entities.Order", "Order")
-                        .WithMany()
+                        .WithMany("OrderItems")
                         .HasForeignKey("OrderID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EllaJewelry.Infrastructure.Data.Entities.Order", null)
-                        .WithMany("OrderItems")
-                        .HasForeignKey("OrderID1");
-
                     b.HasOne("EllaJewelry.Infrastructure.Data.Entities.Product", "Product")
-                        .WithMany()
+                        .WithMany("OrderItems")
                         .HasForeignKey("ProductID")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("EllaJewelry.Infrastructure.Data.Entities.Product", null)
-                        .WithMany("OrderItems")
-                        .HasForeignKey("ProductID1");
-
                     b.HasOne("EllaJewelry.Infrastructure.Data.Entities.Service", "Service")
-                        .WithMany()
+                        .WithMany("OrderItems")
                         .HasForeignKey("ServiceID")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("EllaJewelry.Infrastructure.Data.Entities.Service", null)
-                        .WithMany("OrderItems")
-                        .HasForeignKey("ServiceId");
 
                     b.Navigation("Order");
 
@@ -669,14 +622,10 @@ namespace EllaJewelry.Infrastructure.Migrations
             modelBuilder.Entity("EllaJewelry.Infrastructure.Data.Entities.Product", b =>
                 {
                     b.HasOne("EllaJewelry.Infrastructure.Data.Entities.ProductCategory", "Category")
-                        .WithMany()
+                        .WithMany("Products")
                         .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.HasOne("EllaJewelry.Infrastructure.Data.Entities.ProductCategory", null)
-                        .WithMany("Products")
-                        .HasForeignKey("ProductCategoryId");
 
                     b.Navigation("Category");
                 });
@@ -684,14 +633,10 @@ namespace EllaJewelry.Infrastructure.Migrations
             modelBuilder.Entity("EllaJewelry.Infrastructure.Data.Entities.ProductImage", b =>
                 {
                     b.HasOne("EllaJewelry.Infrastructure.Data.Entities.Product", "Product")
-                        .WithMany()
+                        .WithMany("Images")
                         .HasForeignKey("ProductID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("EllaJewelry.Infrastructure.Data.Entities.Product", null)
-                        .WithMany("Images")
-                        .HasForeignKey("ProductID1");
 
                     b.Navigation("Product");
                 });
@@ -766,6 +711,8 @@ namespace EllaJewelry.Infrastructure.Migrations
 
             modelBuilder.Entity("EllaJewelry.Infrastructure.Data.Entities.Service", b =>
                 {
+                    b.Navigation("Elements");
+
                     b.Navigation("OrderItems");
                 });
 

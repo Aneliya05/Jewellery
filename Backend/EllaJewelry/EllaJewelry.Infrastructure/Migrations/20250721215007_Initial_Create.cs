@@ -227,11 +227,10 @@ namespace EllaJewelry.Infrastructure.Migrations
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     SKU = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Availability = table.Column<long>(type: "bigint", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CategoryID = table.Column<int>(type: "int", nullable: false),
-                    Discriminator = table.Column<string>(type: "nvarchar(21)", maxLength: 21, nullable: false),
-                    ProductCategoryId = table.Column<int>(type: "int", nullable: true)
+                    Discriminator = table.Column<string>(type: "nvarchar(21)", maxLength: 21, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -242,11 +241,6 @@ namespace EllaJewelry.Infrastructure.Migrations
                         principalTable: "ProductCategories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Products_ProductCategories_ProductCategoryId",
-                        column: x => x.ProductCategoryId,
-                        principalTable: "ProductCategories",
-                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -260,8 +254,7 @@ namespace EllaJewelry.Infrastructure.Migrations
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     NumberInSorting = table.Column<int>(type: "int", nullable: true),
                     PersonalizedProductID = table.Column<int>(type: "int", nullable: true),
-                    ServiceID = table.Column<int>(type: "int", nullable: true),
-                    PersonalizedProductID1 = table.Column<int>(type: "int", nullable: true)
+                    ServiceID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -272,11 +265,6 @@ namespace EllaJewelry.Infrastructure.Migrations
                         principalTable: "Products",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Elements_Products_PersonalizedProductID1",
-                        column: x => x.PersonalizedProductID1,
-                        principalTable: "Products",
-                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_Elements_Services_ServiceID",
                         column: x => x.ServiceID,
@@ -296,10 +284,7 @@ namespace EllaJewelry.Infrastructure.Migrations
                     ProductID = table.Column<int>(type: "int", nullable: true),
                     ServiceID = table.Column<int>(type: "int", nullable: true),
                     Quantity = table.Column<int>(type: "int", nullable: false),
-                    PriceAtPurchase = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    OrderID1 = table.Column<int>(type: "int", nullable: true),
-                    ProductID1 = table.Column<int>(type: "int", nullable: true),
-                    ServiceId = table.Column<int>(type: "int", nullable: true)
+                    PriceAtPurchase = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -312,32 +297,17 @@ namespace EllaJewelry.Infrastructure.Migrations
                         principalColumn: "OrderID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_OrderItems_Orders_OrderID1",
-                        column: x => x.OrderID1,
-                        principalTable: "Orders",
-                        principalColumn: "OrderID");
-                    table.ForeignKey(
                         name: "FK_OrderItems_Products_ProductID",
                         column: x => x.ProductID,
                         principalTable: "Products",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_OrderItems_Products_ProductID1",
-                        column: x => x.ProductID1,
-                        principalTable: "Products",
-                        principalColumn: "ID");
-                    table.ForeignKey(
                         name: "FK_OrderItems_Services_ServiceID",
                         column: x => x.ServiceID,
                         principalTable: "Services",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_OrderItems_Services_ServiceId",
-                        column: x => x.ServiceId,
-                        principalTable: "Services",
-                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -347,8 +317,7 @@ namespace EllaJewelry.Infrastructure.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ProductID = table.Column<int>(type: "int", nullable: false),
-                    ProductID1 = table.Column<int>(type: "int", nullable: true)
+                    ProductID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -359,11 +328,6 @@ namespace EllaJewelry.Infrastructure.Migrations
                         principalTable: "Products",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ProductImages_Products_ProductID1",
-                        column: x => x.ProductID1,
-                        principalTable: "Products",
-                        principalColumn: "ID");
                 });
 
             migrationBuilder.InsertData(
@@ -380,8 +344,8 @@ namespace EllaJewelry.Infrastructure.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "SubscribedToNewsletter", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "7604df8a-fe16-4ec9-95eb-fd2aeeee99a3", "admin2005@gmail.com", true, "Aneliya", "Lyavova", false, null, "ADMIN2005@GMAIL.COM", "ADMIN", "AQAAAAIAAYagAAAAEAiFFaGui3Bebsz1/2KAu/KGKR2SzP7MxjG3/amSYOgjyj8v3aP+XRjzepPYhZx6uQ==", "0876764445", false, "", false, false, "Admin" },
-                    { "2", 0, "bb02d148-f2fc-4660-841d-e16dd85b0f75", "contact.ellajewelry@gmail.com", true, "Gabriela", "Kuneva", false, null, "CONTACT.ELLAJEWELRY@GMAIL.COM", "GABIOWNER", "AQAAAAIAAYagAAAAEO4+XEnYqVlZeutm++rKyFIsJiij61jy6CSLwOZK9ZPjjH4Aytc4Cvkp3gemu1KZpQ==", "0887072410", false, "", false, false, "GabiOwner" }
+                    { "1", 0, "*****", "*****", true, "*****", "*****", false, null, "*****", "*****", "*****", "*****", false, "", false, false, "*****" },
+                    { "2", 0, "*****", "*****", true, "*****", "*****", false, null, "*****", "*****", "*****", "*****", false, "", false, false, "*****" }
                 });
 
             migrationBuilder.InsertData(
@@ -438,11 +402,6 @@ namespace EllaJewelry.Infrastructure.Migrations
                 column: "PersonalizedProductID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Elements_PersonalizedProductID1",
-                table: "Elements",
-                column: "PersonalizedProductID1");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Elements_ServiceID",
                 table: "Elements",
                 column: "ServiceID");
@@ -453,24 +412,9 @@ namespace EllaJewelry.Infrastructure.Migrations
                 column: "OrderID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_OrderItems_OrderID1",
-                table: "OrderItems",
-                column: "OrderID1");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_OrderItems_ProductID",
                 table: "OrderItems",
                 column: "ProductID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_OrderItems_ProductID1",
-                table: "OrderItems",
-                column: "ProductID1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_OrderItems_ServiceId",
-                table: "OrderItems",
-                column: "ServiceId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderItems_ServiceID",
@@ -483,19 +427,9 @@ namespace EllaJewelry.Infrastructure.Migrations
                 column: "ProductID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductImages_ProductID1",
-                table: "ProductImages",
-                column: "ProductID1");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryID",
                 table: "Products",
                 column: "CategoryID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Products_ProductCategoryId",
-                table: "Products",
-                column: "ProductCategoryId");
         }
 
         /// <inheritdoc />

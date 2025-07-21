@@ -50,11 +50,7 @@ namespace EllaJewelry.Infrastructure.Data.Entities
         [Required]
         [MaxLength(200)]
         public string GreetingCardName { get; set; }
-
-        [AllowNull]
         public string? Comment { get; set; }
-
-        [AllowNull]
         public string? PromoCode { get; set; }
 
         [NotMapped]
@@ -75,7 +71,7 @@ namespace EllaJewelry.Infrastructure.Data.Entities
 
         public Order()
         {
-            this.TotalPrice = this.CalculatedTotalPrice;
+            TotalPrice = CalculatedTotalPrice;
         }
     }
 }

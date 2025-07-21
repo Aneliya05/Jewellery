@@ -34,19 +34,19 @@ namespace EllaJewelry.Infrastructure.Data.Entities
         [Range(0, int.MaxValue, ErrorMessage = "Availability cannot be negative.")]
         public uint Availability { get; set; } //available quantity
 
-        [AllowNull]
         [StringLength(500)]
         [DataType(DataType.MultilineText)]
-        public string Description { get; set; } //string?
+        public string? Description { get; set; } //string?
 
         [Required]
         [DataType(DataType.ImageUrl)]
         public string ImageUrl { get; set; }
 
         [Required]
-        [ForeignKey("Category")]
         public int CategoryID { get; set; }
-        public ProductCategory? Category { get; set; }
+
+        [ForeignKey(nameof(CategoryID))]    
+        public ProductCategory Category { get; set; } = null!;
 
         public ICollection<ProductImage> Images { get; set; }  = new List<ProductImage>();
         public ICollection<OrderItem> OrderItems { get; set; }

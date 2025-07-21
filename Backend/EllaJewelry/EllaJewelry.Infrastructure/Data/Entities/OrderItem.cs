@@ -14,23 +14,23 @@ namespace EllaJewelry.Infrastructure.Data.Entities
         [Key]
         public int Id { get; set; }
 
-        [AllowNull]
         [StringLength(500)]
         [DataType(DataType.MultilineText)]
         public string? DesireDescription { get; set; } //string?
 
-        [ForeignKey("Order")]
         public int OrderID { get; set; }
+        
+        [ForeignKey("OrderID")]
         public Order Order { get; set; }
 
-        [ForeignKey("Product")]
-        [AllowNull]
         public int? ProductID { get; set; }
+
+        [ForeignKey(nameof(ProductID))]
         public Product? Product { get; set; }
 
-        [ForeignKey("Service")]
-        [AllowNull]
         public int? ServiceID { get; set; }
+        
+        [ForeignKey(nameof(ServiceID))]
         public Service? Service { get; set; }
 
         [Required]

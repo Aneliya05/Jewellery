@@ -23,16 +23,16 @@ namespace EllaJewelry.Infrastructure.Data.Entities
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
 
-        [AllowNull]
         [StringLength(500)]
         [DataType(DataType.MultilineText)]
-        public string? Description { get; set; } //string?
+        public string? Description { get; set; }
 
         [Required]
         [DataType(DataType.ImageUrl)]
         public string ImageUrl { get; set; }
 
         public ICollection<OrderItem> OrderItems { get; set; }
+        public ICollection<Element> Elements { get; set; }
         public Service()
         {
             

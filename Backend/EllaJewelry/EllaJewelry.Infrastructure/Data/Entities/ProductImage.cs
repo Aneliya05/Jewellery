@@ -16,10 +16,10 @@ namespace EllaJewelry.Infrastructure.Data.Entities
         [Required]
         public string ImageUrl { get; set; }
 
-        [ForeignKey("Product")]
         public int ProductID { get; set; }
 
-        public Product? Product { get; set; }
+        [ForeignKey(nameof(ProductID))]
+        public Product Product { get; set; } = null!;
 
         public ProductImage()
         {
