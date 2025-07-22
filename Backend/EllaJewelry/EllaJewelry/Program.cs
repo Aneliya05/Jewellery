@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Identity;
-    
 using Microsoft.EntityFrameworkCore;
 using EllaJewelry.Infrastructure.Data;
 //using Microsoft.AspNet.Identity.EntityFramework;
@@ -13,21 +12,21 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var connectionString = builder.Configuration.GetConnectionString("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=EllaJewelryDb;Trusted_Connection=True;TrustServerCertificate=True;") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+var connectionString = builder.Configuration.GetConnectionString("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=EllaJewelryDb;Trusted_Connection=True;TrustServerCertificate=True;");
 builder.Services.AddDbContext<EllaJewelryDbContext>(options => options.UseSqlServer(connectionString));
 
 
-builder.Services.AddAuthentication()
-    .AddGoogle(options =>
-    {
-        options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
-        options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
-    })
-    .AddFacebook(options =>
-    {
-        options.AppId = builder.Configuration["Authentication:Facebook:AppId"];
-        options.AppSecret = builder.Configuration["Authentication:Facebook:AppSecret"];
-    });
+//builder.Services.AddAuthentication()
+//    .AddGoogle(options =>
+//    {
+//        options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
+//        options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
+//    })
+//    .AddFacebook(options =>
+//    {
+//        options.AppId = builder.Configuration["Authentication:Facebook:AppId"];
+//        options.AppSecret = builder.Configuration["Authentication:Facebook:AppSecret"];
+//    });
 
 
 //builder.Services.AddScoped<UserServices, UserServices>();

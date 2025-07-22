@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EllaJewelry.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea8e9ff73dbe2b5715b9d0e8b5e3a772694907c2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+35f2110cf6cade09e44ffc64e06587e5bd0f4616")]
 [assembly: System.Reflection.AssemblyProductAttribute("EllaJewelry.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EllaJewelry.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
