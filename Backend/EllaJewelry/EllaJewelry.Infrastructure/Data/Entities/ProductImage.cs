@@ -21,9 +21,17 @@ namespace EllaJewelry.Infrastructure.Data.Entities
         [ForeignKey(nameof(ProductID))]
         public Product Product { get; set; } = null!;
 
+        //public List<ProductImage> Images { get; set; }  
+
         public ProductImage()
         {
             
+        }
+
+        public ProductImage(string imagePath, int productID)
+        {
+            ProductID = productID;
+            ImageUrl = imagePath;
         }
     }
 }
