@@ -12,8 +12,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var connectionString = builder.Configuration.GetConnectionString("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=EllaJewelryDb;Trusted_Connection=True;TrustServerCertificate=True;");
+var connectionString = builder.Configuration.GetConnectionString("EllaJewelryDbContextConnection");
 builder.Services.AddDbContext<EllaJewelryDbContext>(options => options.UseSqlServer(connectionString));
+
+//builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<EllaJewelryDbContext>();
 
 
 //builder.Services.AddAuthentication()
@@ -51,7 +53,7 @@ builder.Services.AddIdentity<User, IdentityRole>(options =>
         .AddEntityFrameworkStores<EllaJewelryDbContext>()
         .AddDefaultUI()
         .AddDefaultTokenProviders();
-//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<YourPlaceDbContext>();
+//builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<YourPlaceDbContext>();
 builder.Services.AddRazorPages();
 
 builder.Services.Configure<IdentityOptions>(options =>
@@ -63,15 +65,15 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequiredLength = 5;
 });
 
-//builder.Services.ConfigureApplicationCookie(options =>
-//{
-//    options.Cookie.HttpOnly = true;
-//    options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Cookie.HttpOnly = true;
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
 
-//    options.LoginPath = "/Identity/Account/Login";
-//    options.AccessDeniedPath = "/Idenity/Account/AccessDenied";
-//    options.SlidingExpiration = true;
-//});
+    options.LoginPath = "/Identity/Account/Login";
+    options.AccessDeniedPath = "/Idenity/Account/AccessDenied";
+    options.SlidingExpiration = true;
+});
 
 
 var app = builder.Build();

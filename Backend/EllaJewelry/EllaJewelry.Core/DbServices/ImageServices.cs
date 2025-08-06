@@ -44,7 +44,7 @@ namespace EllaJewelry.Core.DbServices
         }
         public async Task DeleteImage(int productID, int imageID)
         {
-            Product product = await ReadAsync(productID, false, false);
+            Product product = await _dbContext.Products.FindAsync(productID);
             if (product is null)
             {
                 throw new ArgumentException(string.Format($"Product with id {productID} does " +
@@ -66,7 +66,7 @@ namespace EllaJewelry.Core.DbServices
 
         public async Task<ProductCategory> ViewCategory(int productID)
         {
-            Product product = await ReadAsync(productID);
+            Product product = await _dbContext.Products.FindAsync(productID);
             return product.Category;
         }
     }
