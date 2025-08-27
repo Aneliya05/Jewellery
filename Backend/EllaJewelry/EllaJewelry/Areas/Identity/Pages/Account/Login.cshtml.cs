@@ -15,18 +15,24 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using EllaJewelry.Infrastructure.Data.Entities;
+using EllaJewelry.Core.DbServices;
+using System.Data;
 
 namespace EllaJewelry.Web.Areas.Identity.Pages.Account
 {
     public class LoginModel : PageModel
     {
         private readonly SignInManager<User> _signInManager;
+        private readonly UserManager<User> _userManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly UserServices _userServices;
 
-        public LoginModel(SignInManager<User> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<User> signInManager, UserManager<User> userManager, ILogger<LoginModel> logger, UserServices userServices)
         {
             _signInManager = signInManager;
+            _userManager = userManager;
             _logger = logger;
+            _userServices = userServices;
         }
 
         /// <summary>
@@ -112,7 +118,51 @@ namespace EllaJewelry.Web.Areas.Identity.Pages.Account
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                //var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+
+                Tuple<IdentityResult, User> resultTupple = await _userServices.LogInUserAsync(Input.Email, Input.Password);
+                User user = resultTupple.Item2;
+                if (user == null || !(await _userManager.CheckPasswordAsync(user, Input.Password)))
+                {
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    return Page();
+                }
+
+                if (resultTupple.Item1.Succeeded)
+                {
+                    // Use the following code if you are calling userManager.PasswordValidators[0].ValidateAsync(..)
+                    await _signInManager.SignInAsync(user, new AuthenticationProperties());
+
+                    // Else if you want to validate credentials here, with signInManager:
+                    await _signInManager.PasswordSignInAsync(user, Input.Password, Input.RememberMe, lockoutOnFailure: true);
+                   
+                    if (user != null)
+                    {
+                        var roles = await _signInManager.UserManager.GetRolesAsync(user);
+
+                        if (roles.Contains("Admin"))
+                        {
+                            return RedirectToAction("Index", "AdminMenu", new { firstName = user.FirstName, lastName = user.LastName, adminID = user.Id });
+                        }
+                        else
+                            return RedirectToAction("Index", new {firstName = user.FirstName, lastName = user.LastName});
+
+                    }
+                    _logger.LogInformation("User logged successfully!");
+                    return LocalRedirect(returnUrl);
+                }
+                else
+                {
+                    string code = resultTupple.Item1.Errors.First().Code;
+                    string description = resultTupple.Item1.Errors.First().Description;
+
+                    ModelState.AddModelError(code, description);
+
+                    return Page();
+                }
+
+                
+                /*
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
@@ -131,7 +181,7 @@ namespace EllaJewelry.Web.Areas.Identity.Pages.Account
                 {
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");
                     return Page();
-                }
+                }*/
             }
 
             // If we got this far, something failed, redisplay form

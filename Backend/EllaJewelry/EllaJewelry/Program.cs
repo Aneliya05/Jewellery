@@ -5,6 +5,7 @@ using EllaJewelry.Infrastructure.Data;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using EllaJewelry.Infrastructure.Data.Entities;
+using EllaJewelry.Core.DbServices;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,7 +32,7 @@ builder.Services.AddDbContext<EllaJewelryDbContext>(options => options.UseSqlSer
 //    });
 
 
-//builder.Services.AddScoped<UserServices, UserServices>();
+builder.Services.AddScoped<UserServices, UserServices>();
 ////builder.Services.AddScoped<IEmailSender, EmailSender>();
 //builder.Services.AddScoped<HotelsServices>();
 //builder.Services.AddScoped<RoomServices>();
@@ -63,6 +64,7 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequireUppercase = false;
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequiredLength = 5;
+    options.User.RequireUniqueEmail = true;
 });
 
 builder.Services.ConfigureApplicationCookie(options =>

@@ -21,7 +21,8 @@ namespace EllaJewelry.Core.DbServices
             _dbContext = dbContext;
             _logger = logger;
         }
-        #region CRUD For Products
+
+        #region CRUD For Services
 
         /// <summary>
         /// Creates a new product.
@@ -93,8 +94,6 @@ namespace EllaJewelry.Core.DbServices
             return result;
         }
 
-
-
         /// <summary>
         /// Reads a single product by ID.
         /// </summary>
@@ -124,7 +123,6 @@ namespace EllaJewelry.Core.DbServices
             return service;
         }
 
-
         /// <summary>
         /// Updates an existing product.
         /// </summary>
@@ -152,5 +150,6 @@ namespace EllaJewelry.Core.DbServices
             _logger.LogInformation("Service with ID {Service ID} updated successfully.", item.Id);
         }
         #endregion
+
     }
 }

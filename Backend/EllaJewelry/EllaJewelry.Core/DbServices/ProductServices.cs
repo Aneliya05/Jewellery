@@ -129,7 +129,6 @@ namespace EllaJewelry.Core.DbServices
             return product;
         }
 
-
         /// <summary>
         /// Updates an existing product.
         /// </summary>

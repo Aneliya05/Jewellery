@@ -5,11 +5,14 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
+using Elfie.Serialization;
+using EllaJewelry.Core.DbServices;
 using EllaJewelry.Infrastructure.Data.Entities;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -30,13 +33,14 @@ namespace EllaJewelry.Web.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<User> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly UserServices _userServices;
 
         public RegisterModel(
             UserManager<User> userManager,
             IUserStore<User> userStore,
             SignInManager<User> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender, UserServices userServices)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -44,6 +48,7 @@ namespace EllaJewelry.Web.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _userServices = userServices;
         }
 
         /// <summary>
@@ -120,15 +125,22 @@ namespace EllaJewelry.Web.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
+                /*
                 var user = CreateUser();
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
+                */
 
-                if (result.Succeeded)
+                Tuple<IdentityResult, User> result;
+
+                result = await _userServices.CreateAccountAsync(Input.FirstName, Input.LastName, Input.Email, Input.Password);
+
+                if (result.Item1.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+                    User user = result.Item2;
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -151,8 +163,10 @@ namespace EllaJewelry.Web.Areas.Identity.Pages.Account
                         await _signInManager.SignInAsync(user, isPersistent: false);
                         return LocalRedirect(returnUrl);
                     }
+
+
                 }
-                foreach (var error in result.Errors)
+                foreach (var error in result.Item1.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
