@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using EllaJewelry.Infrastructure.Data.Entities;
 using EllaJewelry.Core.DbServices;
+using EllaJewelry.Core.Contracts;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -32,18 +33,16 @@ builder.Services.AddDbContext<EllaJewelryDbContext>(options => options.UseSqlSer
 //    });
 
 
-builder.Services.AddScoped<UserServices, UserServices>();
-////builder.Services.AddScoped<IEmailSender, EmailSender>();
-//builder.Services.AddScoped<HotelsServices>();
-//builder.Services.AddScoped<RoomServices>();
-//builder.Services.AddScoped<HotelCategoriesServices>();
-//builder.Services.AddScoped<PreferencesServices>();
-//builder.Services.AddScoped<ReservationServices>();
-//builder.Services.AddScoped<RoomAvailabiltyServices>();
-//builder.Services.AddScoped<Filters>();
-//builder.Services.AddScoped<PreferencesSorting>();
-
-
+builder.Services.AddScoped<IUser, UserServices>();
+builder.Services.AddScoped<ICategory, CategoryServices>();
+builder.Services.AddScoped<IElement, ElementServices>();
+builder.Services.AddScoped<IImage, ImageServices>();
+builder.Services.AddScoped<IOrder, OrderServices>();
+builder.Services.AddScoped<IProduct, ProductServices>();
+builder.Services.AddScoped<IService, ServiceServices>();
+builder.Services.AddScoped<IJewellery, JewelleryServices>();
+////builder.Services.AddScoped<IEmailSender, 
+///EmailSender>();
 
 
 builder.Services.AddIdentity<User, IdentityRole>(options =>

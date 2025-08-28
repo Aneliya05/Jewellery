@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace EllaJewelry.Core.DbServices
 {
-    public class ProductServices : ICRUD<Product, int>
+    public class ProductServices : IProduct
     {
         private readonly EllaJewelryDbContext _dbContext;
         private readonly ILogger<ProductServices> _logger;

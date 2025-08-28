@@ -1,4 +1,5 @@
-﻿using EllaJewelry.Infrastructure.Data;
+﻿using EllaJewelry.Core.Contracts;
+using EllaJewelry.Infrastructure.Data;
 using EllaJewelry.Infrastructure.Data.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace EllaJewelry.Core.DbServices
 {
-    public class UserServices
+    public class UserServices : IUser
     {
         private readonly UserManager<User> _userManager;
         private readonly EllaJewelryDbContext _dbContext;

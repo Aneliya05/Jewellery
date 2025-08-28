@@ -12,6 +12,7 @@ using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
 using Elfie.Serialization;
+using EllaJewelry.Core.Contracts;
 using EllaJewelry.Core.DbServices;
 using EllaJewelry.Infrastructure.Data.Entities;
 using Microsoft.AspNetCore.Authentication;
@@ -33,14 +34,14 @@ namespace EllaJewelry.Web.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<User> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
-        private readonly UserServices _userServices;
+        private readonly IUser _userServices;
 
         public RegisterModel(
             UserManager<User> userManager,
             IUserStore<User> userStore,
             SignInManager<User> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender, UserServices userServices)
+            IEmailSender emailSender, IUser userServices)
         {
             _userManager = userManager;
             _userStore = userStore;

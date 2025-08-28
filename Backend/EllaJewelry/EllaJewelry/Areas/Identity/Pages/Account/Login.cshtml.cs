@@ -17,6 +17,7 @@ using Microsoft.Extensions.Logging;
 using EllaJewelry.Infrastructure.Data.Entities;
 using EllaJewelry.Core.DbServices;
 using System.Data;
+using EllaJewelry.Core.Contracts;
 
 namespace EllaJewelry.Web.Areas.Identity.Pages.Account
 {
@@ -25,9 +26,9 @@ namespace EllaJewelry.Web.Areas.Identity.Pages.Account
         private readonly SignInManager<User> _signInManager;
         private readonly UserManager<User> _userManager;
         private readonly ILogger<LoginModel> _logger;
-        private readonly UserServices _userServices;
+        private readonly IUser _userServices;
 
-        public LoginModel(SignInManager<User> signInManager, UserManager<User> userManager, ILogger<LoginModel> logger, UserServices userServices)
+        public LoginModel(SignInManager<User> signInManager, UserManager<User> userManager, ILogger<LoginModel> logger, IUser userServices)
         {
             _signInManager = signInManager;
             _userManager = userManager;
@@ -142,7 +143,7 @@ namespace EllaJewelry.Web.Areas.Identity.Pages.Account
 
                         if (roles.Contains("Admin"))
                         {
-                            return RedirectToAction("Index", "AdminMenu", new { firstName = user.FirstName, lastName = user.LastName, adminID = user.Id });
+                            return RedirectToAction("Index", "Admin", new { adminID = user.Id });
                         }
                         else
                             return RedirectToAction("Index", new {firstName = user.FirstName, lastName = user.LastName});

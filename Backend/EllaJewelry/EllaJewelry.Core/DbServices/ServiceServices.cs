@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace EllaJewelry.Core.DbServices
 {
-    public class ServiceServices : ICRUD<Service, int>
+    public class ServiceServices : IService
     {
         private readonly EllaJewelryDbContext _dbContext;
         private readonly ILogger<ServiceServices> _logger;

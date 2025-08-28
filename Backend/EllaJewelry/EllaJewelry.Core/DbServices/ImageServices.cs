@@ -1,4 +1,5 @@
-﻿using EllaJewelry.Infrastructure.Data;
+﻿using EllaJewelry.Core.Contracts;
+using EllaJewelry.Infrastructure.Data;
 using EllaJewelry.Infrastructure.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace EllaJewelry.Core.DbServices
 {
-    public class ImageServices
+    public class ImageServices : IImage
     {
         private readonly EllaJewelryDbContext _dbContext;
         private readonly ILogger<ImageServices> _logger;

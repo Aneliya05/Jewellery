@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Admin Dashboard";
+    ViewData["AdminIndex"] = true; // disables offcanvas
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Menu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body style="background: #aba1e1;">
+    <div class="container">
+        <h1 class="mt-5 text-center text-white">Hello, Admin! 👋</h1>
+        <div class="list-group mt-4 text-center">
+            <a href="/admin/users" class="list-group-item list-group-item-action">Manage Users</a>
+            <a href="/admin/products" class="list-group-item list-group-item-action">Manage Products</a>
+            <a href="/admin/orders" class="list-group-item list-group-item-action">Manage Orders</a>
+            <a href="/admin/reports" class="list-group-item list-group-item-action">View Reports</a>
+            <a href="/admin/settings" class="list-group-item list-group-item-action">Settings</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+</body>
+</html>

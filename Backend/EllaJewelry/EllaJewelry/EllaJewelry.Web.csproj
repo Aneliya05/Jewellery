@@ -27,8 +27,4 @@
     <ProjectReference Include="..\EllaJewelry.Infrastructure\EllaJewelry.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\Admin\" />
-  </ItemGroup>
-
 </Project>
