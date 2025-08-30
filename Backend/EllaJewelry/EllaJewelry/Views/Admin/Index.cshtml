@@ -16,11 +16,12 @@
     <div class="container">
         <h1 class="mt-5 text-center text-white">Hello, Admin! 👋</h1>
         <div class="list-group mt-4 text-center">
-            <a href="/admin/users" class="list-group-item list-group-item-action">Manage Users</a>
+            <a class="list-group-item list-group-item-action" asp-controller="Admin" asp-action="ListUsers">Manage Users</a>
             <a href="/admin/products" class="list-group-item list-group-item-action">Manage Products</a>
             <a href="/admin/orders" class="list-group-item list-group-item-action">Manage Orders</a>
             <a href="/admin/reports" class="list-group-item list-group-item-action">View Reports</a>
             <a href="/admin/settings" class="list-group-item list-group-item-action">Settings</a>
+            <a class="list-group-item list-group-item-action text-warning" asp-controller="Home" asp-action="Index">User Panel</a>
         </div>
     </div>
 

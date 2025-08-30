@@ -1,10 +1,21 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using EllaJewelry.Core.Contracts;
+using EllaJewelry.Infrastructure.Data.Entities;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EllaJewelry.Web.Controllers
 {
     public class AdminController : Controller
     {
+        private readonly IJewellery _jewellery;
+        private readonly IUser _userServices;
+
+        public AdminController(IJewellery jewellery, IUser userServices)
+        {
+            _jewellery = jewellery;   
+            _userServices = userServices;
+        }
         // GET: Admin
         public ActionResult Index()
         {
@@ -12,9 +23,10 @@ namespace EllaJewelry.Web.Controllers
         }
 
         // GET: Admin/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> ListUsers()
         {
-            return View();
+            IEnumerable<User> users = await _userServices.ReadAllUsersAsync();
+            return View("ListUsers", users);
         }
 
         // GET: Admin/Create
