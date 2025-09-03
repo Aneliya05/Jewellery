@@ -29,6 +29,12 @@ namespace EllaJewelry.Web.Controllers
             return View("ListUsers", users);
         }
 
+        public async Task<ActionResult> ManageProducts()
+        {
+            var products = await _jewellery.Products.ReadAllAsync();
+            return View("Product/List", products);
+        }
+
         // GET: Admin/Create
         public ActionResult Create()
         {
