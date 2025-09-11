@@ -31,8 +31,8 @@ namespace EllaJewelry.Web.Controllers
 
         public async Task<ActionResult> ManageProducts()
         {
-            var products = await _jewellery.Products.ReadAllAsync();
-            return View("Product/List", products);
+            //var products = await _jewellery.Products.ReadAllAsync();
+            return RedirectToAction("List", "Product");
         }
 
         // GET: Admin/Create

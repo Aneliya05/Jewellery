@@ -18,8 +18,6 @@ namespace EllaJewelry.Web.Controllers
         public async Task<ActionResult> List()
         {
             var products = await _jewelry.Products.ReadAllAsync();
-            if(products.Count == 0)
-                return RedirectToAction(nameof(Create));
             return View(products);  
         }
 
@@ -33,7 +31,7 @@ namespace EllaJewelry.Web.Controllers
         // GET: ProductController/Create
         public ActionResult Create()
         {
-            return View("Admin/Product/Create");
+            return View();
         }
 
         // POST: ProductController/Create
@@ -47,8 +45,8 @@ namespace EllaJewelry.Web.Controllers
                 return RedirectToAction(nameof(List));
             }
 
-            
-            return RedirectToAction(nameof(Create));
+
+            return View(nameof(Create));
         }
 
         // GET: ProductController/Edit/5
@@ -68,7 +66,7 @@ namespace EllaJewelry.Web.Controllers
             var categories = await _jewelry.Categories.ReadAllAsync();
             ViewBag.CategoryId = new SelectList(categories, "Id", "Name", globalProduct.CategoryID);
 
-            return View("Admin/Product/Edit", globalProduct);
+            return View(globalProduct);
         }
 
         // POST: ProductController/Edit/5
@@ -121,7 +119,7 @@ namespace EllaJewelry.Web.Controllers
             var categories = await _jewelry.Categories.ReadAllAsync();
             ViewBag.CategoryId = new SelectList(categories, "Id", "Name", globalProduct.CategoryID);
 
-            return View("Admin/Product/Delete", globalProduct);
+            return View(globalProduct);
         }
 
         // POST: ProductController/Delete/5

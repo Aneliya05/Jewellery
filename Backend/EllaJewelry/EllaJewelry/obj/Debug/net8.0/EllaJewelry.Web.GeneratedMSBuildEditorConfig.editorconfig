@@ -194,32 +194,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTGlzdFVzZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aneli/Desktop/Gabi's website/Jewellery/Backend/EllaJewelry/EllaJewelry/Views/Admin/Product/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUHJvZHVjdFxDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/aneli/Desktop/Gabi's website/Jewellery/Backend/EllaJewelry/EllaJewelry/Views/Admin/Product/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUHJvZHVjdFxEZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/aneli/Desktop/Gabi's website/Jewellery/Backend/EllaJewelry/EllaJewelry/Views/Admin/Product/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUHJvZHVjdFxEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/aneli/Desktop/Gabi's website/Jewellery/Backend/EllaJewelry/EllaJewelry/Views/Admin/Product/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUHJvZHVjdFxFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/aneli/Desktop/Gabi's website/Jewellery/Backend/EllaJewelry/EllaJewelry/Views/Admin/Product/List.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUHJvZHVjdFxMaXN0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/aneli/Desktop/Gabi's website/Jewellery/Backend/EllaJewelry/EllaJewelry/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/aneli/Desktop/Gabi's website/Jewellery/Backend/EllaJewelry/EllaJewelry/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aneli/Desktop/Gabi's website/Jewellery/Backend/EllaJewelry/EllaJewelry/Views/Product/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aneli/Desktop/Gabi's website/Jewellery/Backend/EllaJewelry/EllaJewelry/Views/Product/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aneli/Desktop/Gabi's website/Jewellery/Backend/EllaJewelry/EllaJewelry/Views/Product/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aneli/Desktop/Gabi's website/Jewellery/Backend/EllaJewelry/EllaJewelry/Views/Product/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aneli/Desktop/Gabi's website/Jewellery/Backend/EllaJewelry/EllaJewelry/Views/Product/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/aneli/Desktop/Gabi's website/Jewellery/Backend/EllaJewelry/EllaJewelry/Views/Shared/Error.cshtml]
