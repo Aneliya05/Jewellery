@@ -9,7 +9,8 @@
 <h1>All Products</h1>
 
 <p>
-    <a asp-controller="Product" asp-action="Create">Create New</a>
+    <a asp-controller="Product" asp-action="Create">Create New Product</a>
+    <a asp-controller="Category" asp-action="List">View Categories</a>
 </p>
 @if (Model == null || !Model.Any())
 {
