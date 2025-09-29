@@ -25,7 +25,7 @@ namespace EllaJewelry.Web.Controllers
         public ActionResult Details(int id)
         {
             var product = _jewelry.Products.ReadAsync(id);
-            return View("Admin/Product/Details", product);
+            return View(product);
         }
 
         // GET: ProductController/Create
@@ -52,11 +52,10 @@ namespace EllaJewelry.Web.Controllers
         // GET: ProductController/Edit/5
         public async Task<ActionResult> Edit(int id)
         {
-            Product globalProduct;
+            Product product;
             try
             {
-                var product = await _jewelry.Products.ReadAsync(id);
-                globalProduct = product;
+                product = await _jewelry.Products.ReadAsync(id);
             }
             catch(ArgumentException)
             {
@@ -64,9 +63,9 @@ namespace EllaJewelry.Web.Controllers
             }
 
             var categories = await _jewelry.Categories.ReadAllAsync();
-            ViewBag.CategoryId = new SelectList(categories, "Id", "Name", globalProduct.CategoryID);
+            ViewBag.CategoryId = new SelectList(categories, "Id", "Name", product.CategoryID);
 
-            return View(globalProduct);
+            return View(product);
         }
 
         // POST: ProductController/Edit/5
@@ -104,53 +103,35 @@ namespace EllaJewelry.Web.Controllers
         // GET: ProductController/Delete/5
         public async Task<ActionResult> Delete(int id)
         {
-
-            Product globalProduct;
+            Product product;
             try
             {
-                var product = await _jewelry.Products.ReadAsync(id);
-                globalProduct = product;
+                product = await _jewelry.Products.ReadAsync(id);
             }
             catch (ArgumentException)
             {
                 return NotFound();
             }
 
-            var categories = await _jewelry.Categories.ReadAllAsync();
-            ViewBag.CategoryId = new SelectList(categories, "Id", "Name", globalProduct.CategoryID);
-
-            return View(globalProduct);
+            return View(product);
         }
 
         // POST: ProductController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Delete(int id, Product product)
+        public async Task<ActionResult> Delete(int id, IFormCollection collection)
         {
-            if (id != product.ID)
+            try
             {
-                return NotFound();
+                await _jewelry.Products.DeleteAsync(id);
             }
-
-            if (ModelState.IsValid)
+            catch
             {
-                try
-                {
-                    await _jewelry.Products.UpdateAsync(product);
-                    return RedirectToAction(nameof(Details), product);
-                }
-                catch
-                {
-                    // log error if needed
-                    ModelState.AddModelError("", "Unable to save changes.");
-                }
+                // log error if needed
+                ModelState.AddModelError("", "Deletion was unsuccessful.");
             }
-
-            // repopulate category dropdown if validation fails
-            var categories = await _jewelry.Categories.ReadAllAsync();
-            ViewBag.CategoryId = new SelectList(categories, "Id", "Name", product.CategoryID);
-
-            return View(product);
+                
+            return RedirectToAction(nameof(List));
         }
     }
 }

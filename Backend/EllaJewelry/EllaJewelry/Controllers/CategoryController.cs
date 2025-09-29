@@ -1,6 +1,8 @@
 ﻿using EllaJewelry.Core.Contracts;
+using EllaJewelry.Infrastructure.Data.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace EllaJewelry.Web.Controllers
 {
@@ -20,10 +22,10 @@ namespace EllaJewelry.Web.Controllers
         }
 
         // GET: CategoryController/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id)
         {
-            var category = _jewelry.Categories.ReadAsync(id);
-            return View("Admin/Product/Details", category);
+            var category = await _jewelry.Categories.ReadAsync(id);
+            return View(category);
         }
 
         // GET: CategoryController/Create
@@ -35,58 +37,92 @@ namespace EllaJewelry.Web.Controllers
         // POST: CategoryController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> Create(ProductCategory category)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                await _jewelry.Categories.CreateAsync(category);
+                return RedirectToAction(nameof(List));
             }
-            catch
-            {
-                return View();
-            }
+            
+
+            return View(nameof(Create));
         }
 
         // GET: CategoryController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
-            return View();
+            ProductCategory category;
+            try
+            {
+                category = await _jewelry.Categories.ReadAsync(id);
+            }
+            catch (ArgumentException)
+            {
+                return NotFound();
+            }
+
+            return View(category);
         }
 
         // POST: CategoryController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(int id, ProductCategory category)
         {
-            try
+            if(id != category.Id)
             {
-                return RedirectToAction(nameof(Index));
+                return NotFound();
             }
-            catch
+
+            if (ModelState.IsValid)
             {
-                return View();
+                try
+                {
+                    await _jewelry.Categories.UpdateAsync(category);
+                    return RedirectToAction(nameof(Details), category);
+                }
+                catch
+                {
+                    // log error if needed
+                    ModelState.AddModelError("", "Unable to save changes.");
+                }
             }
+           
+            return RedirectToAction(nameof(List));
         }
 
         // GET: CategoryController/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
-            return View();
+            ProductCategory category;
+            try
+            {
+                category = await _jewelry.Categories.ReadAsync(id);
+            }
+            catch(ArgumentException)
+            {
+                return NotFound();
+            }
+            return View(category);
         }
 
         // POST: CategoryController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(int id, IFormCollection collection)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                await _jewelry.Categories.DeleteAsync(id);
             }
             catch
             {
-                return View();
+                // log error if needed
+                ModelState.AddModelError("", "Deletion was unsuccessful.");
             }
+
+            return RedirectToAction(nameof(List));
         }
     }
 }

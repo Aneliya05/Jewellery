@@ -2,7 +2,7 @@
 
 @{  
     Layout = "_AdminLayout";
-    ViewData["Title"] = "ListProducts";
+    ViewData["Title"] = "List Products";
     ViewData["AdminIndex"] = false;
 }
 
@@ -12,7 +12,7 @@
     <a asp-controller="Product" asp-action="Create">Create New Product</a>
     <a asp-controller="Category" asp-action="List">View Categories</a>
 </p>
-@if (Model == null || !Model.Any())
+@if (!Model.Any())
 {
     <p>No products.</p>
 }

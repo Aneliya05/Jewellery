@@ -49,7 +49,7 @@ namespace EllaJewelry.Infrastructure.Data.Entities
         public ProductCategory Category { get; set; } = null!;
 
         public ICollection<ProductImage> Images { get; set; }  = new List<ProductImage>();
-        public ICollection<OrderItem> OrderItems { get; set; }
+        public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 
         public Product()
         {

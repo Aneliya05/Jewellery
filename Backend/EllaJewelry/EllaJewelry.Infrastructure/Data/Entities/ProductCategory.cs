@@ -18,7 +18,7 @@ namespace EllaJewelry.Infrastructure.Data.Entities
         [Display(Name = "Give a name to your new category")]
         public string Name { get; set; }
 
-        public ICollection<Product> Products { get; set; }
+        public ICollection<Product> Products { get; set; } = new List<Product>();
 
         public ProductCategory()
         {

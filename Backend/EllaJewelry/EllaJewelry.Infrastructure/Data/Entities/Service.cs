@@ -31,8 +31,8 @@ namespace EllaJewelry.Infrastructure.Data.Entities
         [DataType(DataType.ImageUrl)]
         public string ImageUrl { get; set; }
 
-        public ICollection<OrderItem> OrderItems { get; set; }
-        public ICollection<Element> Elements { get; set; }
+        public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+        public ICollection<Element> Elements { get; set; } = new List<Element>();
         public Service()
         {
             
