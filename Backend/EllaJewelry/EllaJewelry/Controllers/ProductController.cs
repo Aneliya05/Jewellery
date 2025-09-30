@@ -17,34 +17,58 @@ namespace EllaJewelry.Web.Controllers
         // GET: ProductController
         public async Task<ActionResult> List()
         {
-            var products = await _jewelry.Products.ReadAllAsync();
+            var products = await _jewelry.Products.ReadAllAsync(true);
             return View(products);  
         }
 
         // GET: ProductController/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id)
         {
-            var product = _jewelry.Products.ReadAsync(id);
+            var product = await _jewelry.Products.ReadAsync(id, true);
             return View(product);
         }
 
         // GET: ProductController/Create
-        public ActionResult Create()
+        public async Task <ActionResult> Create()
         {
+            var categories = await _jewelry.Categories.ReadAllAsync(); 
+
+            ViewBag.CategoryID = new SelectList(categories, "Id", "Name");
+
             return View();
         }
 
         // POST: ProductController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(Product product)
+        public async Task<ActionResult> Create(Product product, IFormFile imageFile)
         {
             if (ModelState.IsValid)
             {
+                if(imageFile != null && imageFile.Length > 0)
+                {
+                    var fileName = Path.GetFileName(imageFile.FileName);
+                    var uploads = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+
+                    if (!Directory.Exists(uploads))
+                    {
+                        Directory.CreateDirectory(uploads);
+                    }
+
+                    var filePath = Path.Combine(uploads, fileName);
+
+                    using(var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await imageFile.CopyToAsync(stream);
+                    }
+
+                    product.ImageUrl = "/images/" + fileName;
+                }
                 await _jewelry.Products.CreateAsync(product);
                 return RedirectToAction(nameof(List));
             }
-
+            var categories = await _jewelry.Categories.ReadAllAsync();
+            ViewBag.CategoryID = new SelectList(categories, "Id", "Name", product.CategoryID);
 
             return View(nameof(Create));
         }
@@ -55,7 +79,7 @@ namespace EllaJewelry.Web.Controllers
             Product product;
             try
             {
-                product = await _jewelry.Products.ReadAsync(id);
+                product = await _jewelry.Products.ReadAsync(id, true);
             }
             catch(ArgumentException)
             {
@@ -71,7 +95,7 @@ namespace EllaJewelry.Web.Controllers
         // POST: ProductController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Product product)
+        public async Task<ActionResult> Edit(int id, Product product, IFormFile imageFile)
         {
             if (id != product.ID)
             {
@@ -82,6 +106,26 @@ namespace EllaJewelry.Web.Controllers
             {
                 try
                 {
+                    if (imageFile != null && imageFile.Length > 0)
+                    {
+                        var fileName = Path.GetFileName(imageFile.FileName);
+                        var uploads = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+
+                        if (!Directory.Exists(uploads))
+                        {
+                            Directory.CreateDirectory(uploads);
+                        }
+
+                        var filePath = Path.Combine(uploads, fileName);
+
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await imageFile.CopyToAsync(stream);
+                        }
+
+                        product.ImageUrl = "/images/" + fileName;
+                    }
+
                     await _jewelry.Products.UpdateAsync(product);
                     return RedirectToAction(nameof(Details), product);
                 }
@@ -106,7 +150,7 @@ namespace EllaJewelry.Web.Controllers
             Product product;
             try
             {
-                product = await _jewelry.Products.ReadAsync(id);
+                product = await _jewelry.Products.ReadAsync(id, true);
             }
             catch (ArgumentException)
             {

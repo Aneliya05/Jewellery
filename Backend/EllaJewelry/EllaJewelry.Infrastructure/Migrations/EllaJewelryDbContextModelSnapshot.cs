@@ -194,7 +194,6 @@ namespace EllaJewelry.Infrastructure.Migrations
                         .HasColumnType("nvarchar(21)");
 
                     b.Property<string>("ImageUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -370,41 +369,41 @@ namespace EllaJewelry.Infrastructure.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "99f22039-838f-4f18-87da-cb782c29e21f",
-                            Email = "*****",
+                            ConcurrencyStamp = "b4626d44-0f16-4797-be6d-8e23e2fb5e7b",
+                            Email = "localadmin@example.com",
                             EmailConfirmed = true,
-                            FirstName = "*****",
-                            LastName = "*****",
+                            FirstName = "Local",
+                            LastName = "Admin",
                             LockoutEnabled = false,
-                            NormalizedEmail = "*****",
-                            NormalizedUserName = "*****",
-                            PasswordHash = "*****",
-                            PhoneNumber = "*****",
+                            NormalizedEmail = "LOCALADMIN@EXAMPLE.COM",
+                            NormalizedUserName = "LOCALADMIN",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAQWTvHJclPYmsCkv1eLpFmfVB7HdYQGSGJy5cGqV4546HLK3vE7sHjTv6BHRZ+Izg==",
+                            PhoneNumber = "+0000000000",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             SubscribedToNewsletter = false,
                             TwoFactorEnabled = false,
-                            UserName = "*****"
+                            UserName = "localadmin"
                         },
                         new
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7295b807-302e-457c-9e24-1b41d1c57121",
-                            Email = "*****",
+                            ConcurrencyStamp = "f9e1ae82-6f1b-415b-8148-e2f43f04d9f2",
+                            Email = "localowner@example.com",
                             EmailConfirmed = true,
-                            FirstName = "*****",
-                            LastName = "*****",
+                            FirstName = "Local",
+                            LastName = "Owner",
                             LockoutEnabled = false,
-                            NormalizedEmail = "*****",
-                            NormalizedUserName = "*****",
-                            PasswordHash = "*****",
-                            PhoneNumber = "*****",
+                            NormalizedEmail = "LOCALOWNER@EXAMPLE.COM",
+                            NormalizedUserName = "LOCALOWNER",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAE3JWmzD6rxt7CDofMCcaPJGcRrlPHkpcSL+uA/N9uMTYjeRjMUIj5vCa/m/TaKGQ==",
+                            PhoneNumber = "+0000000001",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             SubscribedToNewsletter = false,
                             TwoFactorEnabled = false,
-                            UserName = "*****"
+                            UserName = "localowner"
                         });
                 });
 
@@ -474,7 +473,7 @@ namespace EllaJewelry.Infrastructure.Migrations
                     b.ToTable("AspNetRoleClaims", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.UserClaim<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -499,7 +498,7 @@ namespace EllaJewelry.Infrastructure.Migrations
                     b.ToTable("AspNetUserClaims", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.UserLogin<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
                         .HasColumnType("nvarchar(450)");
@@ -521,7 +520,7 @@ namespace EllaJewelry.Infrastructure.Migrations
                     b.ToTable("AspNetUserLogins", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.UserRole<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
@@ -548,7 +547,7 @@ namespace EllaJewelry.Infrastructure.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.UserToken<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
@@ -647,7 +646,7 @@ namespace EllaJewelry.Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.UserClaim<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
                     b.HasOne("EllaJewelry.Infrastructure.Data.Entities.User", null)
                         .WithMany()
@@ -656,7 +655,7 @@ namespace EllaJewelry.Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.UserLogin<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.HasOne("EllaJewelry.Infrastructure.Data.Entities.User", null)
                         .WithMany()
@@ -665,7 +664,7 @@ namespace EllaJewelry.Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.UserRole<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
                         .WithMany()
@@ -680,7 +679,7 @@ namespace EllaJewelry.Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.UserToken<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.HasOne("EllaJewelry.Infrastructure.Data.Entities.User", null)
                         .WithMany()

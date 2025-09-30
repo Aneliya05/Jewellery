@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\aneli\\Desktop\\Gabi's website\\Jewellery\\Backend\\EllaJewelry\\EllaJewelry\\wwwroot\\images\\22816a94-9ff5-473e-b1b2-7502d4e17463.jpg",
+      "PackagePath": "staticwebassets\\images\\22816a94-9ff5-473e-b1b2-7502d4e17463.jpg"
+    },
+    {
+      "Id": "C:\\Users\\aneli\\Desktop\\Gabi's website\\Jewellery\\Backend\\EllaJewelry\\EllaJewelry\\wwwroot\\images\\design scheme.jpg",
+      "PackagePath": "staticwebassets\\images\\design scheme.jpg"
+    },
+    {
       "Id": "C:\\Users\\aneli\\Desktop\\Gabi's website\\Jewellery\\Backend\\EllaJewelry\\EllaJewelry\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

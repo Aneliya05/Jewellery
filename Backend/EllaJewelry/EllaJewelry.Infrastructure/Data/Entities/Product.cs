@@ -38,22 +38,22 @@ namespace EllaJewelry.Infrastructure.Data.Entities
         [DataType(DataType.MultilineText)]
         public string? Description { get; set; } //string?
 
-        [Required]
         [DataType(DataType.ImageUrl)]
-        public string ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
 
         [Required]
         public int CategoryID { get; set; }
 
         [ForeignKey(nameof(CategoryID))]    
-        public ProductCategory Category { get; set; } = null!;
+        public ProductCategory? Category { get; set; }
 
         public ICollection<ProductImage> Images { get; set; }  = new List<ProductImage>();
         public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 
         public Product()
         {
-            
+            Images = new List<ProductImage>();
+            OrderItems = new List<OrderItem>();
         }
     }
 }
