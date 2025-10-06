@@ -18,65 +18,51 @@
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.ImageUrl)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Price)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SKU)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Availability)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Description)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Category)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model) {
-                    <tr>
-                        <td>
-                            <img src="@item.ImageUrl" alt="@item.Name" class="img-thumbnail" width="150" />
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Price)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.SKU)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Availability)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Description)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Category.Name)
-                        </td>
-                        <td>
-                            <a asp-controller="Product" asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                            <a asp-controller="Product" asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                            <a asp-controller="Product" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-                        </td>
-                    </tr>
-            }
-        </tbody>
-</table>
+    <div class="products-grid d-flex flex-wrap row flex-row gx-2 gy-2 gap-md-4 justify-content-center pt-2 ">
+        @foreach(var item in Model)
+        {
+            <!-- CARD -->
+            <div class="col-6 col-md-3">
+                <div class="card">
+                    <img src="@item.ImageUrl" alt="@item.Name" class="img-thumbnail card-image-top" style="max-height: 50%;"/>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text price">@item.Price</p>
+                        <div class="badges">
+                            @if(item.Availability >= 5)
+                            {
+                                <span class="availability badge bg-success">В наличност</span>
+                            }
+                            else
+                            @if(item.Availability > 0 && item.Availability < 5)
+                            {
+                                <span class="limit badge bg-danger">Лимитиран продукт</span>
+                            }
+                            else
+                            {
+                                <span class="limit badge bg-danger">Изчерпан продукт</span>
+                            }
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between align-items-center">
+                        <div class="details">
+                            <button class="details-btn btn btn-secondary" data-bs-toggle="modal" data-bs-target="#briellaModal">
+                                <i class="bi bi-info-circle-fill"></i>
+                                <span class="see-info-text">Виж повече</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="controllers">
+                    <a asp-controller="Product" asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-controller="Product" asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-controller="Product" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </div>
+            </div>
+            <!-- CARD END -->
+        }
+        
+    </div>
 }
+
 

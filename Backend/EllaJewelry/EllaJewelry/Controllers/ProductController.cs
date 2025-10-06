@@ -65,6 +65,7 @@ namespace EllaJewelry.Web.Controllers
                     product.ImageUrl = "/images/" + fileName;
                 }
                 await _jewelry.Products.CreateAsync(product);
+                await _jewelry.Images.AddImages(product.ID, product.ImageUrl);
                 return RedirectToAction(nameof(List));
             }
             var categories = await _jewelry.Categories.ReadAllAsync();
@@ -88,6 +89,7 @@ namespace EllaJewelry.Web.Controllers
 
             var categories = await _jewelry.Categories.ReadAllAsync();
             ViewBag.CategoryId = new SelectList(categories, "Id", "Name", product.CategoryID);
+            
 
             return View(product);
         }
@@ -106,15 +108,15 @@ namespace EllaJewelry.Web.Controllers
             {
                 try
                 {
-                    if (imageFile != null && imageFile.Length > 0)
+                    var image = await _jewelry.Images.ShowImageThumbnail(id);
+                    await _jewelry.Images.DeleteImage(product.ID, image.Id);
+                    if (imageFile.Length > 0)
                     {
                         var fileName = Path.GetFileName(imageFile.FileName);
                         var uploads = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
 
                         if (!Directory.Exists(uploads))
-                        {
                             Directory.CreateDirectory(uploads);
-                        }
 
                         var filePath = Path.Combine(uploads, fileName);
 
@@ -123,10 +125,15 @@ namespace EllaJewelry.Web.Controllers
                             await imageFile.CopyToAsync(stream);
                         }
 
-                        product.ImageUrl = "/images/" + fileName;
+                        product.Images.Add(new ProductImage
+                        {
+                            ImageUrl = "/images/" + fileName
+                        });
                     }
 
+
                     await _jewelry.Products.UpdateAsync(product);
+                    await _jewelry.Images.AddImages(product.ID, product.ImageUrl);
                     return RedirectToAction(nameof(Details), product);
                 }
                 catch

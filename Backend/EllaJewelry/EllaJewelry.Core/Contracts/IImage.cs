@@ -13,6 +13,7 @@ namespace EllaJewelry.Core.Contracts
 
         Task<List<ProductImage>> ShowProductImages(int productID, bool useNavigationalProperties = true, bool isReadOnly = true);
 
+        Task<ProductImage> ShowImageThumbnail(int productID, bool useNavigationalProperties = true, bool isReadOnly = true); 
         Task DeleteImage(int productID, int imageID);
 
         Task<ProductCategory> ViewCategory(int productID);

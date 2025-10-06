@@ -2,12 +2,14 @@
 using EllaJewelry.Infrastructure.Data;
 using EllaJewelry.Infrastructure.Data.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace EllaJewelry.Core.DbServices
 {
@@ -42,6 +44,28 @@ namespace EllaJewelry.Core.DbServices
                 images = images.AsNoTrackingWithIdentityResolution();
             }
             return await images.ToListAsync();
+        }
+
+        public async Task<ProductImage> ShowImageThumbnail(int productID, bool useNavigationalProperties = false, bool isReadOnly = true)
+        {
+            IQueryable<ProductImage> images = _dbContext.ProductImages.Where(x => x.ProductID == productID);
+            if (useNavigationalProperties)
+            {
+                images = images.Include(x => x.Product);
+            }
+            if (isReadOnly)
+            {
+                images = images.AsNoTrackingWithIdentityResolution();
+            }
+
+            ProductImage image = await images.SingleOrDefaultAsync(p => p.ProductID == productID);
+            if (image == null)
+            {
+                _logger.LogWarning("Image with ID {ProductID} not found.", productID);
+                throw new ArgumentException(nameof(productID));
+            }
+            _logger.LogInformation("Image with ID {ProductID} retrieved successfully.", productID);
+            return image;
         }
         public async Task DeleteImage(int productID, int imageID)
         {
